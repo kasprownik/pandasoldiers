@@ -9,7 +9,7 @@ io.configure(function () {
     io.enable('browser client minification');  // send minified client
     io.enable('browser client etag');          // apply etag caching logic based on version number
     io.enable('browser client gzip');          // gzip the file
-    io.set('log level', 5);                    // reduce logging
+    io.set('log level', 1);                    // reduce logging
     io.set('transports', [
         'websocket'
     ]);
@@ -20,8 +20,12 @@ server.listen(8080, ipaddress);
 console.warn(ipaddress);
 app.use(express.static(__dirname + '/'));
 
+var communication = require('./server/communication');
+
 io.sockets.on('connection', function (socket) {
     'use strict';
+
+    communication.init(io.sockets, socket);
 
     socket.on('createWorld', function () {
         physics.init();
@@ -46,6 +50,5 @@ io.sockets.on('connection', function (socket) {
             socket.emit('updatePosition', physics.getObject(id));
         }
     });
-
 });
 

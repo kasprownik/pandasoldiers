@@ -26,7 +26,7 @@ world.spawn = function () {
 
 world.createObject = function (width, height, pX, pY, type, id) {
     'use strict';
-                   console.log('dsds');
+
     var bodyDef,
         polygonShape,
         fixtureDef,
