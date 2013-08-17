@@ -1,7 +1,7 @@
 /* global io: true */
 
 var config = {
-    debug: false
+    debug: true
 };
 
 var models = {
@@ -10,6 +10,9 @@ var models = {
     bullets: []
 };
 
+console.log = function () {
+
+};
 
 window.onload = function () {
     'use strict';
@@ -17,7 +20,7 @@ window.onload = function () {
     var canvasNode = document.getElementById('game'),
         ctx = canvasNode.getContext('2d');
 
-    var socket = config.debug ? io.connect('http://localhost::8000') :
+    var socket = config.debug ? io.connect('http://localhost:8080') :
         io.connect('ws://pandasoldiers-cognifideninjas.rhcloud.com:8000');
 
     function render() {
