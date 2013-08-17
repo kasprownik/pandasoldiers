@@ -19,6 +19,10 @@ server.listen(8080, ipaddress);
 console.warn(ipaddress);
 app.use(express.static(__dirname + '/'));
 
+var communication = require('./server/communication');
+
+io.sockets.on('connection', function (socket) {
+    communication.init(io.sockets, socket);
 io.sockets.on('connection', function (socket) {    
     socket.emit('news', { hello: 'world' });
     socket.on('player_move', function (data) {
