@@ -1,7 +1,9 @@
 /* global io: true */
 
 var config = {
-    debug: true
+    debug: true,
+    stageWidth: 800,
+    stageHeight: 600
 };
 
 var models = {

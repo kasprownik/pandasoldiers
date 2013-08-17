@@ -46,9 +46,6 @@ exports.module = (function () {
                     }
                 });
 
-                socket.on('movePlayer', function (data) {
-                    console.log(data);
-                });
             });
 
             io.sockets.on('connection', function (socket) {
@@ -61,10 +58,12 @@ exports.module = (function () {
             ps.publish('createPlayer', playerId);
 
             socket.on('movePlayer', function (data) {
+                console.log(data);
                 ps.publish('movePlayer', {playerId: playerId, action: data.action});
             });
 
             socket.on('shot', function (data) {
+                console.log(data);
                 ps.publish('createBullet', {playerId: playerId, angle: data.action});
             });
 
