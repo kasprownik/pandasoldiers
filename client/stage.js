@@ -16,7 +16,7 @@ var drawRectangle = function (ctx, platform) {
 
 	var coordinates = platform.coordinates,
 		start = coordinates.start,
-		end = coordinages.end;
+		end = coordinates.end;
 
 	ctx.beginPath();
 	ctx.rect(start.x, start.y, end.x, end.y);
