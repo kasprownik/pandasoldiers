@@ -15,10 +15,10 @@ var models = {
             life: 100
         },
         {
-            x: 32,
-            y: 32,
+            x: 200,
+            y: 200,
             name: 'merry',
-            life: 30
+            life: 65
         }
     ],
     stage: [
@@ -32,7 +32,7 @@ var models = {
                 },
                 size: {
                     x: 20,
-                    y: 600
+                    y: 580
                 }
             }
         },
@@ -55,11 +55,11 @@ var models = {
             texture : 'grass',
             coordinates: {
                 start: {
-                    x: 20,
+                    x: 0,
                     y: 580
                 },
                 size: {
-                    x: 760,
+                    x: 800,
                     y: 20
                 }
             }
@@ -74,7 +74,7 @@ var models = {
                 },
                 size: {
                     x: 20,
-                    y: 580
+                    y: 560
                 }
             }
         },
@@ -101,7 +101,7 @@ var models = {
                     y: 100
                 },
                 size: {
-                    x: 80,
+                    x: 40,
                     y: 40
                 }
             }
@@ -112,11 +112,11 @@ var models = {
             coordinates: {
                 start: {
                     x: 160,
-                    y: 140
+                    y: 100
                 },
                 size: {
                     x: 40,
-                    y: 40
+                    y: 80
                 }
             }
         },
@@ -195,11 +195,11 @@ var models = {
             texture : 'ground',
             coordinates: {
                 start: {
-                    x: 600,
+                    x: 640,
                     y: 100
                 },
                 size: {
-                    x: 80,
+                    x: 40,
                     y: 40
                 }
             }
@@ -210,11 +210,11 @@ var models = {
             coordinates: {
                 start: {
                     x: 600,
-                    y: 140
+                    y: 100
                 },
                 size: {
                     x: 40,
-                    y: 40
+                    y: 80
                 }
             }
         },

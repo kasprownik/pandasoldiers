@@ -3,7 +3,7 @@ var drawStage = function (ctx) {
     	platforms = models.stage;
 
 	//create sky
-	ctx.fillStyle = "skyblue";
+	ctx.fillStyle = "#33ABF9";
 	ctx.fillRect(20,20,760,560);
 
 	//create stage platforms    	
@@ -26,7 +26,7 @@ var drawRectangle = function (ctx, platform) {
 	if (texture === 'wall'){
 		ctx.fillStyle = 'orange';
 	} else if (texture === 'ground'){
-		ctx.fillStyle = 'brown';
+		ctx.fillStyle = 'saddlebrown';
 	} else if (texture === 'grass'){
 		ctx.fillStyle = 'green';
 	}
@@ -47,8 +47,15 @@ var drawDecoration = function (ctx) {
 			size = platform.coordinates.size;
 
 			//create decoration grass
-			ctx.fillStyle = 'blue';
+			ctx.fillStyle = 'darkgreen';
 			ctx.fillRect(start.x, start.y-offset, size.x, offset);
+    	}else if(platform.texture === 'ground'){
+			start = platform.coordinates.start,
+			size = platform.coordinates.size;
+
+			//create decoration grass
+			ctx.fillStyle = 'brown';
+			ctx.fillRect(start.x, start.y+size.y, size.x, offset);
     	}
     });
 	
