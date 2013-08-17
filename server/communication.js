@@ -1,7 +1,7 @@
 exports.module = (function () {
     'use strict';
     var ps = require('../lib/pubsub');
-    var uuid = require('../lib/uuid');
+    var uuid = require('../lib/uuid').uuid;
     return {
         init: function (server) {
             var module = this;
@@ -44,6 +44,10 @@ exports.module = (function () {
                     if (physics.getObject(id)) {
                         socket.emit('updatePosition', physics.getObject(id));
                     }
+                });
+
+                socket.on('movePlayer', function (data) {
+                    console.log(data);
                 });
             });
 
