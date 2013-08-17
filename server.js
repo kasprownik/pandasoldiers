@@ -22,5 +22,9 @@ app.use(express.static(__dirname + '/'));
 var communication = require('./server/communication');
 
 io.sockets.on('connection', function (socket) {
+
     communication.init(io.sockets, socket);
+    socket.on('player_move', function(data) {
+        console.log(data);
+    });
 });
