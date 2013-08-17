@@ -15,12 +15,20 @@ var drawStage = function (ctx) {
 var drawRectangle = function (ctx, platform) {
 
 	var coordinates = platform.coordinates,
+		texture = platform.texture,
 		start = coordinates.start,
 		size = coordinates.size;
 
-	ctx.beginPath();
-	ctx.rect(start.x, start.y, size.x, size.y);
-	ctx.fillStyle = 'black';
-	ctx.fill();
+	
+	
+	if (texture === 'wall'){
+		ctx.fillStyle = 'orange';
+	} else if (texture === 'ground'){
+		ctx.fillStyle = 'brown';
+	} else if (texture === 'grass'){
+		ctx.fillStyle = 'green';
+	}
+	
+	ctx.fillRect(start.x, start.y, size.x, size.y);
 
 }

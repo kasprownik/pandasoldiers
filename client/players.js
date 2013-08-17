@@ -4,7 +4,8 @@ var drawPlayers = function (ctx){
         players = models.players;
 
     _.each(players,function(player){
-    	drawSinglePlayer(ctx,player)
+    	drawSinglePlayer(ctx,player);
+    	drawSinglePlayerLife(ctx, player);
     });   
 }
 
@@ -20,4 +21,8 @@ var drawSinglePlayer = function (ctx, model) {
     ctx.strokeStyle = '#003300';
     ctx.stroke();
 
+}
+
+var drawSinglePlayerLife = function (ctx, model) {
+	
 }
