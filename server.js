@@ -1,16 +1,16 @@
-var app = require('express')()
-    , server = require('http').createServer(app)
-    , io = require('socket.io').listen(server);
+var express = require("express");
+var site = express();
 
-server.listen(8080);
+site.use(express.static(__dirname + '/'));
+site.use(express.favicon("./favicon.ico"));
 
-app.get('/', function (req, res) {
-    res.sendfile(__dirname + '/index.html');
-});
+var io = require('socket.io').listen(1338);
 
 io.sockets.on('connection', function (socket) {
-    socket.emit('news', { hello: 'world' });
-    socket.on('my other event', function (data) {
-        console.log(data);
-    });
+    //blah blah
 });
+
+site.listen(1337);
+
+console.log("File server listening on http://localhost:1337");
+console.log("WebSockets server listening on http://localhost:1338");
