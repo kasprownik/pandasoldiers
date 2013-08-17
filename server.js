@@ -23,9 +23,4 @@ var communication = require('./server/communication');
 
 io.sockets.on('connection', function (socket) {
     communication.init(io.sockets, socket);
-io.sockets.on('connection', function (socket) {    
-    socket.emit('news', { hello: 'world' });
-    socket.on('player_move', function (data) {
-        console.log(data);        
-    });
 });
