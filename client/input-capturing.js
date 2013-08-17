@@ -1,8 +1,11 @@
 function sendInput(socket, name, data) {
+    'use strict';
     socket.emit(name, data);
 }
 
 function runInputCapturing(socket) {
+
+    'use strict';
 
     var KEY = {
         UP: 38,

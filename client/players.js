@@ -13,16 +13,28 @@ var drawSinglePlayer = function (ctx, model) {
 
     var player = model;
 
-    ctx.beginPath();
-    ctx.arc(model.x, model.y, 2, 0, 2 * Math.PI, false);
-    ctx.fillStyle = 'green';
-    ctx.fill();
-    ctx.lineWidth = 5;
-    ctx.strokeStyle = '#003300';
-    ctx.stroke();
+    ctx.fillStyle = 'black';
+    ctx.fillRect(player.x, player.y, 20, 20);
+
+    drawSinglePlayerLife(ctx, player)
 
 }
 
-var drawSinglePlayerLife = function (ctx, model) {
+var drawSinglePlayerLife = function (ctx, player) {
+	var life = player.life,
+		barLength = (life*20)/100;
+
+	if(life >= 80){
+		ctx.fillStyle = 'green';	
+	} else if(life < 80 && life >= 60) {
+		ctx.fillStyle = 'lawngreen';
+	} else if(life < 60 && life >= 40) {
+		ctx.fillStyle = 'yellow';
+	} else if(life < 40 && life >= 20) {
+		ctx.fillStyle = 'orange';
+	} else if(life < 20) {
+		ctx.fillStyle = 'red';
+	}
 	
+	ctx.fillRect(player.x, player.y-3, barLength, 2);
 }
