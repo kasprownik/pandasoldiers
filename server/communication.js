@@ -44,6 +44,10 @@ exports.module = (function () {
                         socket.emit('updatePosition', physics.getObject(id));
                     }
                 });
+
+                socket.on('movePlayer', function (data) {
+                    console.log(data);
+                });
             });
 
 

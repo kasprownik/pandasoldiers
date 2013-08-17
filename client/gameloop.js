@@ -1,7 +1,7 @@
 /* global io: true */
 
 var config = {
-    debug: false
+    debug: true
 };
 
 var models = {
@@ -77,7 +77,7 @@ window.onload = function () {
     });
 
     socket.on('updatePosition', function (data) {
-        console.log(data.position.y);
+        // console.log(data.position.y);
     });
 
     function render() {
