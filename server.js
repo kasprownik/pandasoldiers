@@ -84,30 +84,6 @@ var SampleApp = function() {
         });
     };
 
-    // socket.io initialization on the server side
-    self.initializeSocketIO = function() {
-        self.server = require('http').createServer(self.app);
-        self.io = require('socket.io').listen(self.server);
-        self.io.enable('browser client minification');  // send minified client
-        self.io.enable('browser client etag');          // apply etag caching logic based on version number
-        self.io.enable('browser client gzip');          // gzip the file
-        self.io.set('log level', 1);                    // reduce logging
-
-        self.io.set('transports', [
-            'websocket'
-        ]);
-        return this;
-    };
-
-    self.addSocketIOEvents = function() {
-        self.io.sockets.on('connection', function (socket) {
-            socket.emit('news', { hello: 'world' });
-            socket.on('my other event', function (data) {
-                console.log(data);
-            });
-        });
-    };
-
 
     /*  ================================================================  */
     /*  App server functions (main app logic here).                       */
@@ -161,8 +137,8 @@ var SampleApp = function() {
 
         // Create the express server and routes.
         self.initializeServer();
-        self.initializeSocketIO().addSocketIOEvents();
     };
+
 
     /**
      *  Start the server (starts up the sample application).
