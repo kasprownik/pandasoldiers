@@ -57,7 +57,7 @@ var models = {
                     y: 580
                 },
                 size: {
-                    x: 780,
+                    x: 760,
                     y: 20
                 }
             }
@@ -551,6 +551,7 @@ window.onload = function () {
         clearCanvas(ctx);
         drawStage(ctx);
         drawPlayers(ctx);
+        drawDecoration(ctx);
         moveBullets(ctx);
         drawBullets(ctx);
         //     console.log('loop iteration begins');
