@@ -1,6 +1,7 @@
 exports.module = (function () {
     'use strict';
     var ps = require('../lib/pubsub');
+    var uuid = require('../lib/uuid').uuid;
     return {
         init: function (server) {
             var module = this;
@@ -50,13 +51,26 @@ exports.module = (function () {
                 });
             });
 
-
             io.sockets.on('connection', function (socket) {
                 module.bindConnection(io.sockets, socket);
             });
         },
         bindConnection: function (sockets, socket) {
-            ps.publish('createPlayer');
+            var playerId = uuid();
+
+            ps.publish('createPlayer', playerId);
+
+            socket.on('movePlayer', function (data) {
+                ps.publish('movePlayer', {playerId: playerId, action: data.action});
+            });
+
+            socket.on('shot', function (data) {
+                ps.publish('createBullet', {playerId: playerId, angle: data.action});
+            });
+
+            socket.on('disconnect', function () {
+                ps.publish('removePlayer', {playerId: playerId});
+            });
         }
     };
 

@@ -16,14 +16,11 @@ var drawRectangle = function (ctx, platform) {
 
 	var coordinates = platform.coordinates,
 		start = coordinates.start,
-		end = coordinates.end;
+		size = coordinates.size;
 
 	ctx.beginPath();
-	ctx.rect(start.x, start.y, end.x, end.y);
-	ctx.fillStyle = 'yellow';
+	ctx.rect(start.x, start.y, size.x, size.y);
+	ctx.fillStyle = 'black';
 	ctx.fill();
-	ctx.lineWidth = 7;
-	ctx.strokeStyle = 'black';
-	ctx.stroke();
 
 }
