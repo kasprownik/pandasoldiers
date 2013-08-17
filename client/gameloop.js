@@ -1,30 +1,67 @@
 /* global io: true */
 
 var config = {
-    debug: true
+    debug: false
 };
 
 var models = {
-    players: [],
-    stage: {},
+    players: [
+    {
+        "x": 100,
+        "y": 100,
+        "name": "john",
+        "life": 1
+    },
+    {
+        "x": 200,
+        "y": 130,
+        "name": "merry",
+        "life": 3
+    }
+    ],
+    stage: [
+    {
+        "type" : "rectangle",
+        "coordinates": {
+            "start": {
+                "x": 188, 
+                "y": 50  
+            },
+            "end": {
+                "x": 200, 
+                "y": 100
+            }
+        }
+    },
+    {
+        "type" : "rectangle",
+        "coordinates": {
+            "start": {
+                "x": 18, 
+                "y": 50  
+            },
+            "end": {
+                "x": 80, 
+                "y": 90
+            }
+        }
+    }
+    ],
     bullets: []
-};
-
-console.log = function () {
-
 };
 
 window.onload = function () {
     'use strict';
 
-    var canvasNode = document.getElementById('game'),
-        ctx = canvasNode.getContext('2d');
+    window.canvasNode = document.getElementById('game');
+    window.ctx = canvasNode.getContext('2d');
 
+    var socket = config.debug ? io.connect('http://localhost::8000') :
+    io.connect('ws://pandasoldiers-cognifideninjas.rhcloud.com:8000');
     var socket = config.debug ? io.connect('http://localhost:8080') :
         io.connect('ws://pandasoldiers-cognifideninjas.rhcloud.com:8000');
 
     function render() {
-        console.log('loop iteration begins');
         clearCanvas(ctx);
         drawStage(ctx);
         drawPlayers(ctx);
