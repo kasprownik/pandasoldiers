@@ -21,8 +21,8 @@ var drawRectangle = function (ctx, platform) {
 
 	
 	
-	if (texture === 'border'){
-		ctx.fillStyle = 'black';
+	if (texture === 'wall'){
+		ctx.fillStyle = 'orange';
 	} else if (texture === 'ground'){
 		ctx.fillStyle = 'brown';
 	} else if (texture === 'grass'){
