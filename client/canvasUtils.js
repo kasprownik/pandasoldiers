@@ -1,3 +1,3 @@
 function clearCanvas(ctx) {
-    console.log('-> clear canvas');
+    // console.log('-> clear canvas');
 }

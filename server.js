@@ -19,9 +19,9 @@ server.listen(8080, ipaddress);
 console.warn(ipaddress);
 app.use(express.static(__dirname + '/'));
 
-io.sockets.on('connection', function (socket) {
+io.sockets.on('connection', function (socket) {    
     socket.emit('news', { hello: 'world' });
-    socket.on('my other event', function (data) {
-        console.log(data);
+    socket.on('player_move', function (data) {
+        console.log(data);        
     });
 });
