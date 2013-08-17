@@ -456,6 +456,8 @@ window.onload = function () {
     runInputCapturing(socket);
     runModelUpdating(socket);
 
+    playMusic();
+
     (function animloop() {
         window.requestAnimationFrame(animloop);
         render();
