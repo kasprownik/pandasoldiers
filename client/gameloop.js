@@ -1,7 +1,7 @@
 /* global io: true */
 
 var config = {
-    debug: true
+    debug: false
 };
 
 var models = {
