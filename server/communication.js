@@ -1,7 +1,7 @@
 exports.module = (function () {
     'use strict';
     var ps = require('../lib/pubsub');
-    var uuid = require('../lib/uuid');
+    var uuid = require('../lib/uuid').uuid;
     return {
         init: function (server) {
             var module = this;
