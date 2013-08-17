@@ -5,7 +5,8 @@ exports.module = (function () {
         init: function (server) {
             var module = this;
 
-            var io = require('socket.io').listen(server);
+            var io = require('socket.io').listen(server),
+                physics = require('../server/physics.js').physics;
 
             io.configure(function () {
                 io.enable('browser client minification');  // send minified client
@@ -16,6 +17,35 @@ exports.module = (function () {
                     'websocket'
                 ]);
             });
+
+
+            io.sockets.on('connection', function (socket) {
+
+                socket.on('createWorld', function () {
+                    physics.init();
+                });
+
+                socket.on('createStaticObject', function (data) {
+                    var object = physics.createStaticObject(data);
+                    io.sockets.emit('objectCreated', object);
+                });
+
+                socket.on('createDynamicObject', function (data) {
+                    var object = physics.createDynamicObject(data);
+                    io.sockets.emit('objectCreated', object);
+                });
+
+                socket.on('updateWorld', function () {
+                    physics.updateWorld();
+                });
+
+                socket.on('getObject', function (id) {
+                    if (physics.getObject(id)) {
+                        socket.emit('updatePosition', physics.getObject(id));
+                    }
+                });
+            });
+
 
             io.sockets.on('connection', function (socket) {
                 module.bindConnection(io.sockets, socket);

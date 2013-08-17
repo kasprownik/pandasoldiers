@@ -55,11 +55,11 @@ window.onload = function () {
 
     window.canvasNode = document.getElementById('game');
     window.ctx = canvasNode.getContext('2d');
-    var world = false,
-        objects = [];
 
-    var socket = config.debug ? io.connect('http://localhost:8080') :
-        io.connect('ws://pandasoldiers-cognifideninjas.rhcloud.com:8000');
+    var world = false,
+        objects = [],
+        socket = config.debug ? io.connect('http://localhost:8080') :
+            io.connect('ws://pandasoldiers-cognifideninjas.rhcloud.com:8000');
 
     socket.on('objectCreated', function (data) {
         console.log(data);
