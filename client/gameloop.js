@@ -1,22 +1,22 @@
 /* global io: true */
 
 var config = {
-    debug: false
+    debug: true
 };
 
 var models = {
     players: [
         {
-            x: 100,
-            y: 100,
+            x: 32,
+            y: 32,
             name: 'john',
-            life: 1
+            life: 100
         },
         {
-            x: 200,
-            y: 130,
+            x: 32,
+            y: 32,
             name: 'merry',
-            life: 3
+            life: 30
         }
     ],
     stage: [
@@ -57,7 +57,7 @@ var models = {
                     y: 580
                 },
                 size: {
-                    x: 800,
+                    x: 780,
                     y: 20
                 }
             }
@@ -78,7 +78,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'grass',
             coordinates: {
                 start: {
                     x: 120,
@@ -92,7 +92,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 160,
@@ -106,7 +106,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 200,
@@ -120,7 +120,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 240,
@@ -134,7 +134,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 440,
@@ -148,7 +148,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 560,
@@ -162,7 +162,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 600,
@@ -176,7 +176,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 600,
@@ -190,7 +190,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 120,
@@ -204,7 +204,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 240,
@@ -218,7 +218,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 280,
@@ -232,7 +232,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 320,
@@ -246,7 +246,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 440,
@@ -260,7 +260,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 480,
@@ -274,7 +274,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 520,
@@ -288,7 +288,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 640,
@@ -302,7 +302,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 200,
@@ -316,7 +316,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 240,
@@ -330,7 +330,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 320,
@@ -344,7 +344,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 340,
@@ -358,7 +358,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 380,
@@ -372,7 +372,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 480,
@@ -386,7 +386,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'panda',
+            texture : 'ground',
             coordinates: {
                 start: {
                     x: 560,
