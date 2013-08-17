@@ -15,7 +15,7 @@ function playMusic(url, loop) {
         } else {
             return false;
         }
-        return config.debug;
+        return config.music;
     }
 
     // Step 2: Load our Sound using XHR
@@ -41,7 +41,6 @@ function playMusic(url, loop) {
     function playSound() {
         // play the source now
         soundSource.noteOn(0);
-        console.log(soundSource);
     }
 
     function stopSound() {
@@ -74,4 +73,8 @@ function playMusic(url, loop) {
     if (init()) {
         startSound();
     }
+
+    window.stopMusic = function () {
+        stopSound();
+    };
 }

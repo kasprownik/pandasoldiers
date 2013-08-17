@@ -20,7 +20,7 @@
         } else {
             return false;
         }
-        return true;
+        return config.shots;
     }
 
     // Step 2: Load our Sound using XHR

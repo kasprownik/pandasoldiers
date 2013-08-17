@@ -3,7 +3,9 @@
 var config = {
     debug: true,
     stageWidth: 800,
-    stageHeight: 600
+    stageHeight: 600,
+    music: true,
+    shots: true
 };
 
 var models = {
@@ -530,7 +532,6 @@ window.onload = function () {
             io.connect('ws://pandasoldiers-cognifideninjas.rhcloud.com:8000');
 
     socket.on('objectCreated', function (data) {
-        console.log(data);
         objects.push(data);
     });
 
