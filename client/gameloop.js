@@ -24,7 +24,7 @@ var models = {
     stage: [
         {
             type: 'rectangle',
-            texture : 'wall',
+            texture: 'wall',
             coordinates: {
                 start: {
                     x: 0,
@@ -38,7 +38,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'wall',
+            texture: 'wall',
             coordinates: {
                 start: {
                     x: 20,
@@ -52,7 +52,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 20,
@@ -66,7 +66,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'wall',
+            texture: 'wall',
             coordinates: {
                 start: {
                     x: 780,
@@ -80,7 +80,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 120,
@@ -94,7 +94,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'ground',
+            texture: 'ground',
             coordinates: {
                 start: {
                     x: 120,
@@ -108,7 +108,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'ground',
+            texture: 'ground',
             coordinates: {
                 start: {
                     x: 160,
@@ -122,7 +122,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 200,
@@ -136,7 +136,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 240,
@@ -150,7 +150,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 440,
@@ -164,7 +164,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 560,
@@ -178,7 +178,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 600,
@@ -192,7 +192,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'ground',
+            texture: 'ground',
             coordinates: {
                 start: {
                     x: 600,
@@ -206,7 +206,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'ground',
+            texture: 'ground',
             coordinates: {
                 start: {
                     x: 600,
@@ -220,7 +220,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 120,
@@ -234,7 +234,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'ground',
+            texture: 'ground',
             coordinates: {
                 start: {
                     x: 120,
@@ -248,7 +248,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 240,
@@ -262,7 +262,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'ground',
+            texture: 'ground',
             coordinates: {
                 start: {
                     x: 240,
@@ -276,7 +276,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 280,
@@ -290,7 +290,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'ground',
+            texture: 'ground',
             coordinates: {
                 start: {
                     x: 280,
@@ -304,7 +304,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'ground',
+            texture: 'ground',
             coordinates: {
                 start: {
                     x: 440,
@@ -318,7 +318,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 440,
@@ -332,7 +332,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 520,
@@ -346,7 +346,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'ground',
+            texture: 'ground',
             coordinates: {
                 start: {
                     x: 520,
@@ -360,7 +360,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 640,
@@ -374,7 +374,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'ground',
+            texture: 'ground',
             coordinates: {
                 start: {
                     x: 640,
@@ -388,7 +388,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 200,
@@ -402,7 +402,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'ground',
+            texture: 'ground',
             coordinates: {
                 start: {
                     x: 200,
@@ -416,7 +416,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 240,
@@ -430,7 +430,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 320,
@@ -444,7 +444,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 340,
@@ -458,7 +458,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'ground',
+            texture: 'ground',
             coordinates: {
                 start: {
                     x: 380,
@@ -472,7 +472,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 480,
@@ -486,7 +486,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'grass',
+            texture: 'grass',
             coordinates: {
                 start: {
                     x: 560,
@@ -500,7 +500,7 @@ var models = {
         },
         {
             type: 'rectangle',
-            texture : 'ground',
+            texture: 'ground',
             coordinates: {
                 start: {
                     x: 560,
@@ -512,7 +512,6 @@ var models = {
                 }
             }
         }
-
 
 
     ],
@@ -571,7 +570,7 @@ window.onload = function () {
     runInputCapturing(socket);
     runModelUpdating(socket);
 
-    playMusic();
+    playMusic('client/audio/music.mp3', true);
 
     (function animloop() {
         window.requestAnimationFrame(animloop);

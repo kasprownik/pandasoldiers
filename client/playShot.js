@@ -1,9 +1,14 @@
-function playMusic(url, loop) {
+(function () {
+
+    window.playShot = function () {
+    };
+
     var context,
         soundSource,
-        soundBuffer;
+        soundBuffer,
+        url = 'client/audio/shot.mp3';
 
-    loop = loop || false;
+    var loop = false;
 
     // Step 1 - Initialise the Audio Context
     // There can be only one!
@@ -15,7 +20,7 @@ function playMusic(url, loop) {
         } else {
             return false;
         }
-        return config.debug;
+        return true;
     }
 
     // Step 2: Load our Sound using XHR
@@ -39,9 +44,9 @@ function playMusic(url, loop) {
 
     // Finally: tell the source when to start
     function playSound() {
+
         // play the source now
         soundSource.noteOn(0);
-        console.log(soundSource);
     }
 
     function stopSound() {
@@ -72,6 +77,8 @@ function playMusic(url, loop) {
 
 
     if (init()) {
-        startSound();
+        window.playShot = function () {
+            startSound();
+        };
     }
-}
+})();
