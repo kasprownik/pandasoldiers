@@ -1,51 +1,44 @@
-function sendInput(socket, data) {
-
-  socket.emit('player_move', data);
-      console.log(data);
-      console.log(socket);
+function sendInput(socket, name, data) {
+    socket.emit(name, data);
 }
 
 function runInputCapturing(socket) {
 
     var KEY = {
         UP: 38,
-        DOWN: 40,
         LEFT: 37,
         RIGHT: 39
     };
 
-document.addEventListener('keyup', function(event) {
+    document.addEventListener('keyup', function (event) {
 
-    switch(event.keyCode) {
+        switch (event.keyCode) {
 
-        case KEY.UP:
-            sendInput(socket,{key:KEY.UP});
-            break;
+            case KEY.UP:
+                sendInput(socket, 'movePlayer', {action: "up"});
+                break;
 
-        case KEY.DOWN:
-            sendInput(socket,{key:KEY.DOWN});
-            break;
+            case KEY.LEFT:
+                sendInput(socket, 'movePlayer', {action: "left"});
+                break;
 
-        case KEY.LEFT:
-            sendInput(socket,{key:KEY.LEFT});
-            break;
+            case KEY.RIGHT:
+                sendInput(socket, 'movePlayer', {action: "right"});
+                break;
+        }
 
-        case KEY.RIGHT:
-            sendInput(socket,{key:KEY.RIGHT});
-            break;
-
-        default:
-            console.log('default');
-            break;
-    }
-
-}, false);
+    }, false);
 
 // mouse
-	canvasNode.addEventListener('click', function(e) {
-        sendInput(socket,{
-            x:e.pageX,
-            y:e.pageY
-        });
-	}, false);
+
+    canvasNode.addEventListener('click', function (e) {
+        var xOffset = parseInt(e.pageX - canvasNode.offsetLeft, 10);
+        var yOffset = canvasNode.height - parseInt(e.pageY - canvasNode.offsetTop, 10);
+
+        var angle = Math.atan2(yOffset, xOffset) * 180 / Math.PI;
+
+        sendInput(socket, 'shot', {angle: angle });
+
+    }, false);
+
 }
