@@ -1,9 +1,8 @@
 function sendInput(socket, data) {
 
   socket.emit('player_move', data);
-  // console.log(data);
-  // console.log(socket);
-
+      console.log(data);
+      console.log(socket);
 }
 
 function runInputCapturing(socket) {
