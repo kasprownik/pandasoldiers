@@ -1,22 +1,21 @@
 {
-  "name": "OpenShift-Sample-App",
+  "name": "Panda Soldiers",
   "version": "1.0.0",
-  "description": "OpenShift Sample Application",
+  "description": "Probably The best hacked-on shooting websocket app on Pandacodium",
   "keywords": [
-    "OpenShift",
-    "Node.js",
-    "application",
-    "openshift"
+    "panda",
+    "soldiers",
+    "websockets"
   ],
   "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url":  "http://www.openshift.com/"
+    "name": "Cognifide Ninjas",
+    "email": "none",
+    "url":  "http://pandacodium.ca/teams/cognifide-ninjas"
   },
-  "homepage": "http://www.openshift.com/",
+  "homepage": "http://pandacodium.ca/teams/cognifide-ninjas",
   "repository": {
     "type": "git",
-    "url": "https://gitub.com/openshift/origin-server"
+    "url": "https://github.com/Pandacodium/Cognifide-Ninjas"
   },
 
   "engines": {
