@@ -1,16 +1,27 @@
-var express = require("express");
-var site = express();
+var express = require('express')
+    , app = express()
+    , server = require('http').createServer(app)
+    , io = require('socket.io').listen(server)
+    , ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
-site.use(express.static(__dirname + '/'));
-site.use(express.favicon("./favicon.ico"));
+io.configure(function () {
+    io.enable('browser client minification');  // send minified client
+    io.enable('browser client etag');          // apply etag caching logic based on version number
+    io.enable('browser client gzip');          // gzip the file
+    io.set('log level', 1);                    // reduce logging
+    io.set('transports', [
+        'websocket'
+    ]);
 
-var io = require('socket.io').listen(1338);
-
-io.sockets.on('connection', function (socket) {
-    //blah blah
 });
 
-site.listen(1337);
+server.listen(8080, ipaddress);
+console.warn(ipaddress);
+app.use(express.static(__dirname + '/'));
 
-console.log("File server listening on http://localhost:1337");
-console.log("WebSockets server listening on http://localhost:1338");
+io.sockets.on('connection', function (socket) {
+    socket.emit('news', { hello: 'world' });
+    socket.on('my other event', function (data) {
+        console.log(data);
+    });
+});

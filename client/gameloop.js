@@ -1,3 +1,9 @@
+/* global io: true */
+
+var config = {
+    debug: true
+};
+
 var models = {
     players: [],
     stage: {},
@@ -7,11 +13,12 @@ var models = {
 
 window.onload = function () {
     'use strict';
+
     var canvasNode = document.getElementById('game'),
         ctx = canvasNode.getContext('2d');
 
-    var socket = io.connect('http://localhost:1338');
-
+    var socket = config.debug ? io.connect('http://localhost::8000') :
+        io.connect('ws://pandasoldiers-cognifideninjas.rhcloud.com:8000');
 
     function render() {
         console.log('loop iteration begins');
