@@ -74,7 +74,7 @@ var drawSinglePlayerName = function (ctx, player) {
     ctx.fillText(playerName, player.x - 10, player.y - 15);
 
 };
->>>>>>> fa6bb5bb4412f25c9c221056823eff1b143c350b
+>>>>>>> e1fe53199f64baec19716f3f693a10c93a685e8e
 
 var drawSinglePlayerLife = function (ctx, player) {
     var life = player.life,

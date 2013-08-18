@@ -51,6 +51,9 @@ world.createObject = function (width, height, pX, pY, type, id) {
     item = body.CreateFixture(fixtureDef);
     itemDefinition = item.GetBody().GetDefinition();
     itemDefinition.id = id;
+    if (type === 2) {
+        body.SetUserData({id: id, type: 'player'});
+    }
     fixtureDefinition = item.GetAABB();
 
     itemDefinition.size = {
