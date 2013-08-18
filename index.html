@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Panda Soldiers</title>
+    <title>Panda Soldiers by Cognifide Ninjas</title>
+    <link href='http://fonts.googleapis.com/css?family=Shanti' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="client/css/game.css"/>
 </head>
 <body>
@@ -11,9 +12,11 @@
 <div id="overlay"></div>
 
 <div class="player-form">
-    <h3>Hey Panda soldier !</h3>
-    <input type="text" class="input-text" id="player-name" placeholder="What's your name ?">
-    <button id="go" class="button">play</button>
+    <div class="ribbon"></div>
+    <h3 class="form-heading">Hey Panda soldier !</h3>
+    <p class="tip">You can use 5 characters max.</p>
+    <input type="text" class="input-text" id="player-name" placeholder="What's your name ?" maxlength="5">
+    <button id="go" class="button panda">Play</button>
 </div>
 
 <h1 class="playerHeading">Welcome <span id="currentPlayer"></span></h1>

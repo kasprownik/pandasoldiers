@@ -7,6 +7,12 @@ $(function() {
     var overlay = $('#overlay');
     var playerForm = $('.player-form');
 
+    $(document).keypress(function(e){
+        if(e.which == 13){
+            btn.click();
+        }
+    });
+
     btn.on('click', function() {
 
         playerName = $('#player-name').val();
@@ -19,5 +25,7 @@ $(function() {
         }
 
     });
+
+
 
 });

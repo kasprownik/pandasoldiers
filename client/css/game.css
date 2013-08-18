@@ -1,5 +1,7 @@
 
+
 body {
+    font-family: 'Shanti', sans-serif;
     background: url('../textures/bamboo-blur-new.jpg') repeat;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -23,7 +25,7 @@ html {
 
 .player-form {
     background: #fff;
-    padding: 10px 40px 10px 10px;
+    padding: 10px 40px 10px 40px;
     position: absolute;
     z-index: 200;
     left: 50%;
@@ -31,7 +33,42 @@ html {
     border: 1px solid #ccc;
     border-radius: 10px;
     margin-left: -127px;
+    text-align: center;
 }
+
+.form-heading {
+    margin-top: 49px;    
+}
+
+.player-form:before {
+    content: " ";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background: #000;
+    left: -20px;
+    top: -30px;
+    border: 2px solid #fff;
+}
+
+.player-form:after {
+    content: " ";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background: #000;
+    right: -20px;
+    top: -30px;
+    border: 2px solid #fff;
+}
+
+.player-form,
+input[type="text"] {
+    color: #444;
+}
+
 
 #overlay {
     background: rgba(0,0,0,.8);
@@ -44,35 +81,42 @@ html {
     width: 100%;
     z-index: 100;
     overflow-y: auto;
-
-    -webkit-filter: grayscale(100%)blur(5px);
-    -moz-filter: grayscale(100%)blur(5px);
-    -o-filter: grayscale(100%)blur(5px);
-    -ms-filter: grayscale(100%)blur(5px);
-    filter: grayscale(100%)blur(5px);
 }
 
 .button {
     display: block;
     border: 0 none;
-    background: #5cb85c;
     color: #fff;
     text-align: center;
     padding: 5px 25px;
     cursor: pointer;
     font-size: 16px;
+    margin: 5px auto;
+}
+
+button.panda {
+    background: #000;
+    width: 200px;
+    height: 50px;
+    -moz-border-radius: 100px / 50px;
+    -webkit-border-radius: 100px / 50px;
+    border-radius: 100px / 50px;
 }
 
 .input-text {
     padding: 4px 8px;
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .button:hover {
-    background: #71D371;
+    background: #444;
 }
 
 .playerHeading {
     text-align: center;
+    color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 0px 2px 3px #666;
 }
