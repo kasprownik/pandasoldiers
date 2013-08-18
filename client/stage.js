@@ -1,3 +1,10 @@
+var texturePath = '/client/textures/',
+	grass = new Image(),
+	ground = new Image();
+
+	grass.src = texturePath+'grass.jpg';
+	ground.src = texturePath+'ground.jpg';
+
 var drawStage = function (ctx) {
     var stageHolder = ctx,
     	platforms = models.stage;
@@ -16,28 +23,21 @@ var drawStage = function (ctx) {
     })
 
 }
-var bgImg = new Image();
-		bgImg.src = "/client/textures/test.png";
+
 
 var drawRectangle = function (ctx, platform) {
 	var coordinates = platform.coordinates,
 		texture = platform.texture,
 		start = coordinates.start,
 		size = coordinates.size;
+		
+		if(texture.indexOf('grass') !== -1){
+			ctx.drawImage(grass, start.x-size.x/2,  start.y-size.y/2);		
+		}else if(texture.indexOf('ground') !== -1){
+			ctx.drawImage(ground, start.x-size.x/2,  start.y-size.y/2);
+		}		
+			
 
-
-
-	if (texture === 'wall'){
-		ctx.fillStyle = 'orange';
-	} else if (texture === 'ground'){
-		ctx.fillStyle = 'saddlebrown';
-	} else if (texture === 'grass'){
-		ctx.fillStyle = 'green';
-	}
-
-	ctx.fillRect(start.x-size.x/2, start.y-size.y/2, size.x, size.y);
-	
-	ctx.drawImage(bgImg, start.x-size.x/2,  start.y-size.y/2);
 		
 }
 
