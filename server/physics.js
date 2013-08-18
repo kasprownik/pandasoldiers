@@ -130,6 +130,7 @@ physics.createBullet = function (playerID, angle) {
     if (player) {
         world.createObject(20, 20, player.position.x * world.scale, player.position.y * world.scale, b2Body.b2_kinematicBody, 'bullet' + playerID);
         physics.flyItem(data);
+        world.objects['bullet' + playerID].angle = angle;
     }
     return {object: world.objects['bullet' + playerID]};
 };
