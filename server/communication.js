@@ -67,6 +67,10 @@ exports.module = (function () {
                         });
                         _.each(data.bullets, function (bullet) {
                             io.sockets.emit('updatePosition', data.bullets[bullet.id]);
+                            if (data.bullets[bullet.id].kill) {
+                                physics.removeBullet(bullet.id);
+                                io.sockets.emit('removedBullet', bullet.id);
+                            }
                         });
                     }, 17);
 
@@ -79,11 +83,6 @@ exports.module = (function () {
                     physics.removePlayer(currentPlayer);
                     console.log('connection lost', currentPlayer);
                     io.sockets.emit('disconnected', currentPlayer);
-                });
-
-                socket.on('removeBullet', function (id) {
-                    physics.removeBullet(id);
-                    io.sockets.emit('removedBullet', id);
                 });
             });
         }
