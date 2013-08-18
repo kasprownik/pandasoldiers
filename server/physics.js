@@ -18,16 +18,43 @@ physics.init = function () {
 
     var listener = new b2Dynamics();
     listener.BeginContact = function (contact) {
-        if (contact.GetFixtureA().GetDensity() === 0.1) {
+        var userData;
+
+        if (contact.GetFixtureA().GetDensity() === 0.1 || contact.GetFixtureB().GetDensity() === 0.1) {
             var bulletID = contact.GetFixtureA().GetBody().GetUserData().id;
 
             if (world.bullets && world.bullets[bulletID]) {
                 world.bullets[bulletID].kill = true;
+
+                if (contact.GetFixtureA().GetBody().GetUserData() && contact.GetFixtureA().GetBody().GetUserData().type) {
+                    userData = contact.GetFixtureA().GetBody().GetUserData();
+                } else {
+                    userData = contact.GetFixtureB().GetBody().GetUserData();
+                }
+                if (userData && userData.type) {
+                    physics.hitPlayer(userData);
+                }
             }
         }
     };
 
     world.current.SetContactListener(listener);
+
+};
+
+physics.hitPlayer = function (userData) {
+    'use strict';
+
+    if (world.players && world.players[userData.id]) {
+        world.players[userData.id].life -= 5;
+
+    }
+};
+
+physics.killPlayer = function (id) {
+    'use strict';
+
+    physics.removePlayer(id);
 
 };
 

@@ -76,9 +76,11 @@ function startGame() {
     });
 
     socket.on('updatePosition', function (data) {
+
         if (models.players[data.id]) {
             models.players[data.id].y = data.position.y * 30;
             models.players[data.id].x = data.position.x * 30;
+            models.players[data.id].life = data.playerModel.life;
             models.players[data.id].angle = data.angle;
             models.players[data.id].face = data.face;
         } else if (models.bullets[data.id]) {
@@ -96,6 +98,11 @@ function startGame() {
 
     socket.on('disconnected', function (id) {
         delete models.players[id];
+    });
+
+    socket.on('killPlayer', function (id) {
+        delete models.players[id];
+        socket.emit('killedPlayer', id);
     });
 
     function render() {
