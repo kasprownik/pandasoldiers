@@ -123,14 +123,41 @@ physics.removePlayer = function (playerID) {
 physics.createBullet = function (playerID, angle) {
     'use strict';
     var player = world.objects[playerID],
+        playerBody = world.bodies[playerID],
         timestamp = new Date().getTime(),
+        positionFix = {
+            x: 0,
+            y: 0
+        },
         data = {
             id: 'bullet' + playerID + timestamp,
             angle: angle
         };
+
     if (player) {
-        world.createObject(20, 20, player.position.x * world.scale, player.position.y * world.scale, b2Body.b2_kinematicBody, data.id);
+
+        if ((angle >= 0 && angle <= 45) || (angle > 315 && angle <= 360)) {
+            positionFix.y = 0;
+        }
+
+        if (angle > 45 && angle <= 135) {
+            positionFix.x = -10;
+            positionFix.y = 10;
+        }
+
+        if (angle > 135 && angle <= 225) {
+            positionFix.x = -20;
+            positionFix.y = 0;
+        }
+
+        if (angle > 225 && angle <= 315) {
+            positionFix.x = -10;
+            positionFix.y = -20;
+        }
+
+        world.createObject(20, 2, player.position.x * world.scale + positionFix.x, player.position.y * world.scale + positionFix.y, b2Body.b2_kinematicBody, data.id);
         physics.flyItem(data);
+        world.moveItem(playerBody, angle, -1);
         world.objects[ data.id].angle = angle;
     }
     return {object: world.objects[data.id]};
