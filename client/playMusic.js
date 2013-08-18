@@ -71,10 +71,10 @@ function playMusic(url, loop) {
 
 
     if (init()) {
-      //  startSound();
+        startSound();
     }
 
     window.stopMusic = function () {
-     //   stopSound();
+        stopSound();
     };
 }
