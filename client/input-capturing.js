@@ -18,7 +18,7 @@ function runInputCapturing(socket) {
         RIGHT: 68
     };
 
-    document.addEventListener('keydown', _.throttle(function (event) {
+    document.addEventListener('keydown', function (event) {
 
         switch (event.keyCode) {
 
@@ -38,7 +38,7 @@ function runInputCapturing(socket) {
                 break;
         }
 
-    }, 250), false);
+    }, false);
 
     document.addEventListener('keyup', function (event) {
 

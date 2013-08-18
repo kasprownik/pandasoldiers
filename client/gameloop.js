@@ -19,6 +19,7 @@ var playerCreated = false;
 window.onload = function () {
     'use strict';
 
+
     window.canvasNode = document.getElementById('game');
     window.ctx = canvasNode.getContext('2d');
 
@@ -78,6 +79,7 @@ window.onload = function () {
             models.players[data.id].angle = data.angle;
         }
         if (models.bullets[data.id]) {
+
             if (data.kill) {
                 socket.emit('removeBullet', data.id);
             }
@@ -106,18 +108,6 @@ window.onload = function () {
             drawBullets(ctx);
 
             socket.emit('updateWorld');
-            for (var player in models.players) {
-                if (models.players.hasOwnProperty(player)) {
-                    socket.emit('getObject', player);
-                }
-            }
-
-            for (var bullet in models.bullets) {
-                if (models.bullets.hasOwnProperty(bullet)) {
-                    socket.emit('getObject', bullet);
-                }
-            }
-
         }
     }
 
