@@ -1,11 +1,17 @@
+var playerName;
 
 $(function() {
 
     var btn = $('#go');
-    var playerName;
     var playerHeading = $('#currentPlayer');
     var overlay = $('#overlay');
     var playerForm = $('.player-form');
+
+    $(document).keypress(function(e){
+        if(e.which == 13){
+            btn.click();
+        }
+    });
 
     btn.on('click', function() {
 
@@ -19,5 +25,7 @@ $(function() {
         }
 
     });
+
+
 
 });

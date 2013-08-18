@@ -48,11 +48,11 @@ var drawPlayers = function (ctx) {
     _.each(players, function (player) {
         drawSinglePlayer(ctx, player);
         drawSinglePlayerLife(ctx, player);
+        drawSinglePlayerName(ctx, player);
     });
 };
 
 var drawSinglePlayer = function (ctx, model) {
-
     var player = model;
 
     ctx.fillStyle = 'black';
@@ -62,6 +62,12 @@ var drawSinglePlayer = function (ctx, model) {
     ctx.rotate(player.angle * 90);
 
     drawSinglePlayerLife(ctx, player);
+};
+
+var drawSinglePlayerName = function (ctx, player) {
+    ctx.fillStyle = '#222222';
+    ctx.font = "bold 9px Arial";
+    ctx.fillText(playerName, player.x - 10, player.y - 15);
 
 };
 
