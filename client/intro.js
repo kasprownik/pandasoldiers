@@ -1,10 +1,11 @@
+var playerName;
+
 $(function() {
 
     'use strict';
 
     var btn = $('#go');
     var playerHeading = $('#currentPlayer');
-    var playerName;
     var overlay = $('#overlay');
     var playerForm = $('.player-form');
 
