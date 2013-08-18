@@ -14,7 +14,6 @@ physics.init = function () {
     'use strict';
 
     world.spawn();
-    physics.events();
 
 };
 
@@ -22,15 +21,6 @@ physics.createLevel = function () {
     'use strict';
 
     return stage.draw();
-};
-
-physics.events = function () {
-    'use strict';
-
-    ps.subscribe('createPlayer', physics.createPlayer);
-    ps.subscribe('movePlayer', physics.movePlayer);
-    ps.subscribe('shot', physics.createBullet);
-    ps.subscribe('disconnect', physics.removePlayer);
 };
 
 physics.createStaticObject = function (data) {
@@ -77,20 +67,30 @@ physics.moveItem = function (data) {
 
     if (data.action === 'up') {
         angle = 270;
-        force = 4;
+        force = 5;
     }
 
     if (data.action === 'right') {
         angle = 1;
-        force = 1;
+        force = 2;
     }
 
     if (data.action === 'left') {
         angle = 179;
-        force = 1;
+        force = 2;
     }
 
     world.moveItem(body, angle, force);
+};
+
+physics.flyItem = function (data) {
+    'use strict';
+
+    var body = world.bodies[data.id],
+        angle = data.angle,
+        force = 20;
+
+    world.linearVelocity(body, angle, force);
 };
 
 physics.createPlayer = function (playerID) {
@@ -120,41 +120,18 @@ physics.removePlayer = function (playerID) {
     }
 };
 
-physics.movePlayer = function (data) {
+physics.createBullet = function (playerID, angle) {
     'use strict';
-
-    var playerID = data.playerID,
-        action = data.action;
-
-    console.log('movePlayer');
+    var player = world.objects[playerID],
+        data = {
+            id: 'bullet' + playerID,
+            angle: angle
+        };
+    if (player) {
+        world.createObject(20, 20, player.position.x * world.scale, player.position.y * world.scale, b2Body.b2_kinematicBody, 'bullet' + playerID);
+        physics.flyItem(data);
+    }
+    return {object: world.objects['bullet' + playerID]};
 };
-
-physics.createBullet = function (data) {
-    'use strict';
-
-    var playerID = data.playerID;
-
-    console.log('createBullet');
-
-};
-
-physics.updatePlayer = function (data) {
-    'use strict';
-
-    var playerID = data.playerID,
-        position = data.position;
-
-    console.log('updatePlayer');
-};
-
-physics.updateBullet = function (data) {
-    'use strict';
-
-    var playerID = data.playerID,
-        position = data.position;
-
-    console.log('updateBullet');
-};
-
 
 exports.physics = physics;

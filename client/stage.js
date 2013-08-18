@@ -16,12 +16,16 @@ var drawStage = function (ctx) {
     })
 
 }
+var bgImg = new Image();
+		bgImg.src = "/client/textures/test.png";
 
 var drawRectangle = function (ctx, platform) {
 	var coordinates = platform.coordinates,
 		texture = platform.texture,
 		start = coordinates.start,
 		size = coordinates.size;
+
+
 
 	if (texture === 'wall'){
 		ctx.fillStyle = 'orange';
@@ -30,7 +34,11 @@ var drawRectangle = function (ctx, platform) {
 	} else if (texture === 'grass'){
 		ctx.fillStyle = 'green';
 	}
+
 	ctx.fillRect(start.x-size.x/2, start.y-size.y/2, size.x, size.y);
+	
+	ctx.drawImage(bgImg, start.x-size.x/2,  start.y-size.y/2);
+		
 }
 
 var drawDecoration = function (ctx) {

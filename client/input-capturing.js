@@ -59,7 +59,7 @@ function runInputCapturing(socket) {
 
         var angle = Math.atan2(yOffset, xOffset) * 180 / Math.PI;
 
-        sendInput(socket, 'shot', {angle: angle });
+        sendInput(socket, 'shot', {id: window.playerID, angle: angle });
         playShot();
 
     }, false);

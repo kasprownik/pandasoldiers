@@ -1,10 +1,9 @@
-var box2D = require('./../lib/box2d.js').Box2D
-    , b2Vec2 = box2D.Common.Math.b2Vec2
-    , b2World = box2D.Dynamics.b2World
-    , b2FixtureDef = box2D.Dynamics.b2FixtureDef
-    , b2BodyDef = box2D.Dynamics.b2BodyDef
-    , b2Body = box2D.Dynamics.b2Body
-    , b2PolygonShape = box2D.Collision.Shapes.b2PolygonShape;
+var box2D = require('./../lib/box2d.js').Box2D,
+    b2Vec2 = box2D.Common.Math.b2Vec2,
+    b2World = box2D.Dynamics.b2World,
+    b2FixtureDef = box2D.Dynamics.b2FixtureDef,
+    b2BodyDef = box2D.Dynamics.b2BodyDef,
+    b2PolygonShape = box2D.Collision.Shapes.b2PolygonShape;
 
 
 var world = {
@@ -20,7 +19,7 @@ world.spawn = function () {
     'use strict';
 
     world.current = new b2World(
-        new b2Vec2(0, 10),
+        new b2Vec2(0, 30),
         true
     );
 };
@@ -44,7 +43,7 @@ world.createObject = function (width, height, pX, pY, type, id) {
 
     fixtureDef = new b2FixtureDef();
     fixtureDef.density = 1.0;
-    fixtureDef.friction = 1.0;
+    fixtureDef.friction = 0.5;
     fixtureDef.restitution = 0.2;
     fixtureDef.shape = polygonShape;
     body = world.current.CreateBody(bodyDef);
@@ -76,7 +75,20 @@ world.moveItem = function (body, angle, force) {
 
 };
 
+world.linearVelocity = function (body, angle, force) {
+    'use strict';
+
+    var vector = new b2Vec2(
+        Math.cos(angle * (Math.PI / 180)) * force,
+        Math.sin(angle * (Math.PI / 180)) * force
+    );
+
+    body.SetLinearVelocity(vector);
+};
+
 world.removeBody = function (id) {
+    'use strict';
+
     world.bodies[id].GetWorld().DestroyBody(world.bodies[id]);
 };
 
