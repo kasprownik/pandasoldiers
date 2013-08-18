@@ -1,7 +1,7 @@
 /* global io: true */
 
 var config = {
-    debug: true,
+    debug: false,
     stageWidth: 800,
     stageHeight: 600,
     music: false,
