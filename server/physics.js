@@ -14,7 +14,6 @@ physics.init = function () {
     'use strict';
 
     world.spawn();
-    physics.events();
 
 };
 
@@ -22,15 +21,6 @@ physics.createLevel = function () {
     'use strict';
 
     return stage.draw();
-};
-
-physics.events = function () {
-    'use strict';
-
-    ps.subscribe('createPlayer', physics.createPlayer);
-    ps.subscribe('movePlayer', physics.movePlayer);
-    ps.subscribe('shot', physics.createBullet);
-    ps.subscribe('disconnect', physics.removePlayer);
 };
 
 physics.createStaticObject = function (data) {
@@ -119,42 +109,5 @@ physics.removePlayer = function (playerID) {
         delete world.bodies[playerID];
     }
 };
-
-physics.movePlayer = function (data) {
-    'use strict';
-
-    var playerID = data.playerID,
-        action = data.action;
-
-    console.log('movePlayer');
-};
-
-physics.createBullet = function (data) {
-    'use strict';
-
-    var playerID = data.playerID;
-
-    console.log('createBullet');
-
-};
-
-physics.updatePlayer = function (data) {
-    'use strict';
-
-    var playerID = data.playerID,
-        position = data.position;
-
-    console.log('updatePlayer');
-};
-
-physics.updateBullet = function (data) {
-    'use strict';
-
-    var playerID = data.playerID,
-        position = data.position;
-
-    console.log('updateBullet');
-};
-
 
 exports.physics = physics;
