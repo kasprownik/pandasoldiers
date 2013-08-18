@@ -5,6 +5,7 @@ var box2D = require('./../lib/box2d.js').Box2D
     , playerModel = require('./models/player.js').playerModel
     , stageModel = require('./models/stage.js').stageModel
     , b2Body = box2D.Dynamics.b2Body
+    , b2Dynamics = box2D.Dynamics.b2ContactListener
     , ps = require('../lib/pubsub.js');
 
 
@@ -14,6 +15,19 @@ physics.init = function () {
     'use strict';
 
     world.spawn();
+
+    var listener = new b2Dynamics();
+    listener.BeginContact = function (contact) {
+        if (contact.GetFixtureA().GetDensity() === 0.1) {
+            var bulletID = contact.GetFixtureA().GetBody().GetUserData().id;
+
+            if (world.objects && world.objects[bulletID]) {
+                world.objects[bulletID].kill = true;
+            }
+        }
+    };
+
+    world.current.SetContactListener(listener);
 
 };
 
@@ -43,8 +57,8 @@ physics.updateWorld = function () {
 
         world.current.Step(
             1 / 60,   //frame-rate
-            3,       //velocity iterations
-            1       //position iterations
+            8,       //velocity iterations
+            3       //position iterations
         );
         world.current.ClearForces();
     }
@@ -88,7 +102,7 @@ physics.flyItem = function (data) {
 
     var body = world.bodies[data.id],
         angle = data.angle,
-        force = 20;
+        force = 60;
 
     world.linearVelocity(body, angle, force);
 };
@@ -112,12 +126,25 @@ physics.getPlayers = function () {
 
 physics.removePlayer = function (playerID) {
     'use strict';
+
     if (world.players && world.players[playerID]) {
         delete world.players[playerID];
         delete world.objects[playerID];
         world.removeBody(playerID);
         delete world.bodies[playerID];
     }
+};
+
+
+physics.removeBullet = function (bulletID) {
+    'use strict';
+
+    if (world.objects && world.objects[bulletID]) {
+        delete world.objects[bulletID];
+        world.removeBody(bulletID);
+        delete world.bodies[bulletID];
+    }
+
 };
 
 physics.createBullet = function (playerID, angle) {
@@ -137,12 +164,11 @@ physics.createBullet = function (playerID, angle) {
     if (player) {
 
         if ((angle >= 0 && angle <= 45) || (angle > 315 && angle <= 360)) {
-            positionFix.y = 0;
+            positionFix.x = 15;
         }
 
         if (angle > 45 && angle <= 135) {
-            positionFix.x = -10;
-            positionFix.y = 10;
+            positionFix.y = 20;
         }
 
         if (angle > 135 && angle <= 225) {
@@ -151,14 +177,13 @@ physics.createBullet = function (playerID, angle) {
         }
 
         if (angle > 225 && angle <= 315) {
-            positionFix.x = -10;
             positionFix.y = -20;
         }
 
-        world.createObject(20, 2, player.position.x * world.scale + positionFix.x, player.position.y * world.scale + positionFix.y, b2Body.b2_kinematicBody, data.id);
+        world.createKineticObject(4, 4, player.position.x * world.scale + positionFix.x, player.position.y * world.scale + positionFix.y, b2Body.b2_dynamicBody, data.id);
         physics.flyItem(data);
         world.moveItem(playerBody, angle, -1);
-        world.objects[ data.id].angle = angle;
+        world.objects[data.id].angle = angle;
     }
     return {object: world.objects[data.id]};
 };

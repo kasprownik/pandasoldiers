@@ -73,6 +73,11 @@ exports.module = (function () {
                     physics.removePlayer(currentPlayer);
                     io.sockets.emit('disconnected', currentPlayer);
                 });
+
+                socket.on('removeBullet', function (id) {
+                    physics.removeBullet(id);
+                    io.sockets.emit('removedBullet', id);
+                });
             });
         }
     };
