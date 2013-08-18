@@ -8,7 +8,7 @@ function Stage(data) {
     this.items = [
         {
             type: 'rectangle',
-            texture: 'wall',
+            texture: 'leftwall',
             coordinates: {
                 start: {
                     x: 0,
@@ -36,7 +36,7 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'bottom',
             coordinates: {
                 start: {
                     x: 0,
@@ -50,15 +50,15 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'wall',
+            texture: 'rightwall',
             coordinates: {
                 start: {
                     x: 780,
-                    y: 20
+                    y: 0
                 },
                 size: {
                     x: 20,
-                    y: 560
+                    y: 580
                 }
             }
         },
