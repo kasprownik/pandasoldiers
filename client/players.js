@@ -57,11 +57,7 @@ var drawSinglePlayer = function (ctx, model) {
 
     ctx.fillStyle = 'black';
     ctx.drawImage(player.face === 'left' ? player.textures.left : player.textures.right, player.x - 10, player.y - 10);
-
-
     ctx.rotate(player.angle * 90);
-
-    drawSinglePlayerLife(ctx, player);
 };
 
 var drawSinglePlayerName = function (ctx, player) {

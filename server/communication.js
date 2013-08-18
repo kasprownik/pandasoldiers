@@ -50,9 +50,11 @@ exports.module = (function () {
                     socket.emit('createdLevel', physics.createLevel());
                 });
                 var positionTimer;
-                socket.on('createPlayer', function () {
+                socket.on('createPlayer', function (name) {
+                    console.log('name');
                     var player = physics.createPlayer(uuid());
                     currentPlayer = player.id;
+                    player.player.name = name;
                     io.sockets.emit('createdPlayer', player);
 
                     if (positionTimer) {

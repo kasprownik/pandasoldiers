@@ -33,7 +33,7 @@ function startGame() {
 
     socket.emit('createLevel');
     socket.emit('loadPlayers');
-    socket.emit('createPlayer');
+    socket.emit('createPlayer', playerName);
 
     socket.on('createdLevel', function (data) {
         models.stage = data;
@@ -83,6 +83,7 @@ function startGame() {
             models.players[data.id].life = data.playerModel.life;
             models.players[data.id].angle = data.player.angle;
             models.players[data.id].face = data.player.face;
+            models.players[data.id].name = data.playerModel.name;
         } else if (models.bullets[data.id]) {
 
             models.bullets[data.id].y = data.position.y * 30;
