@@ -35,10 +35,20 @@ function runInputCapturing(socket) {
 // mouse
 
     canvasNode.addEventListener('click', function (e) {
-        var xOffset = parseInt(e.pageX - canvasNode.offsetLeft, 10);
-        var yOffset = canvasNode.height - parseInt(e.pageY - canvasNode.offsetTop, 10);
 
-        var angle = Math.atan2(yOffset, xOffset) * 180 / Math.PI;
+        var playerX = models.players[playerID].x;
+        var playerY = models.players[playerID].y;
+
+        var cursorX = parseInt(e.pageX - canvasNode.offsetLeft, 10);
+        var cursorY = parseInt(e.pageY - canvasNode.offsetTop, 10);
+
+        var x = cursorX - playerX;
+        var y = cursorY - playerY;
+
+
+        var angle = Math.atan2(y, x) * 180 / Math.PI;
+
+        angle = angle < 0 ? 360 + angle : angle;
 
         sendInput(socket, 'shot', {angle: angle });
         playShot();
