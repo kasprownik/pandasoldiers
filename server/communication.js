@@ -19,6 +19,9 @@ exports.module = (function () {
             });
 
             physics.init();
+                var worldTimer = setInterval(function () {
+                 physics.updateWorld();
+                },16);
 
             io.sockets.on('connection', function (socket) {
                 var currentPlayer;
@@ -64,7 +67,6 @@ exports.module = (function () {
                         }
 
                         positionTimer = setInterval(function () {
-				physics.updateWorld();
                             var data = physics.getData();
                             _.each(data.players, function (player) {
                                 io.sockets.emit('updatePosition', {player: data.objects[player.id], playerModel: player, id: player.id});
