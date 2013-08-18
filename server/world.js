@@ -43,7 +43,7 @@ world.createObject = function (width, height, pX, pY, type, id) {
 
     fixtureDef = new b2FixtureDef();
     fixtureDef.density = 1;
-    fixtureDef.friction = 0.5;
+    fixtureDef.friction = 0.8;
     fixtureDef.restitution = 0.2;
     fixtureDef.shape = polygonShape;
     fixtureDef.shape.SetAsBox(width / world.scale / 2, height / world.scale / 2);
