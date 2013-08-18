@@ -19,7 +19,7 @@ world.spawn = function () {
     'use strict';
 
     world.current = new b2World(
-        new b2Vec2(0, 20),
+        new b2Vec2(0, 30),
         true
     );
 };

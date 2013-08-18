@@ -42,7 +42,7 @@ physics.updateWorld = function () {
     if (world.current.Step) {
 
         world.current.Step(
-            1 / 30,   //frame-rate
+            1 / 60,   //frame-rate
             3,       //velocity iterations
             1       //position iterations
         );
@@ -67,17 +67,17 @@ physics.moveItem = function (data) {
 
     if (data.action === 'up') {
         angle = 270;
-        force = 4;
+        force = 5;
     }
 
     if (data.action === 'right') {
         angle = 1;
-        force = 1;
+        force = 2;
     }
 
     if (data.action === 'left') {
         angle = 179;
-        force = 1;
+        force = 2;
     }
 
     world.moveItem(body, angle, force);
