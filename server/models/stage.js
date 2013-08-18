@@ -8,7 +8,7 @@ function Stage(data) {
     this.items = [
         {
             type: 'rectangle',
-            texture: 'wall',
+            texture: 'leftwall',
             coordinates: {
                 start: {
                     x: 0,
@@ -36,7 +36,7 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'bottom',
             coordinates: {
                 start: {
                     x: 0,
@@ -50,15 +50,15 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'wall',
+            texture: 'rightwall',
             coordinates: {
                 start: {
                     x: 780,
-                    y: 20
+                    y: 0
                 },
                 size: {
                     x: 20,
-                    y: 560
+                    y: 580
                 }
             }
         },
@@ -386,6 +386,20 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
+            texture: 'ground',
+            coordinates: {
+                start: {
+                    x: 280,
+                    y: 260
+                },
+                size: {
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
             texture: 'grass',
             coordinates: {
                 start: {
@@ -393,7 +407,7 @@ function Stage(data) {
                     y: 180
                 },
                 size: {
-                    x: 80,
+                    x: 40,
                     y: 40
                 }
             }
@@ -516,6 +530,20 @@ function Stage(data) {
             coordinates: {
                 start: {
                     x: 520,
+                    y: 260
+                },
+                size: {
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+           {
+            type: 'rectangle',
+            texture: 'ground',
+            coordinates: {
+                start: {
+                    x: 480,
                     y: 260
                 },
                 size: {

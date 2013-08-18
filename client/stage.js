@@ -1,10 +1,23 @@
+var texturePath = '/client/textures/',
+	grass = new Image(),
+	ground = new Image(),
+	bottom = new Image(),
+	leftWall = new Image(),
+	rightWall = new Image();
+
+	grass.src = texturePath+'grass.jpg';
+	ground.src = texturePath+'ground.jpg';
+	bottom.src = texturePath+'bottom.jpg';
+	leftWall.src = texturePath+'left-wall.png';
+	rightWall.src = texturePath+'right-wall.png';
+
 var drawStage = function (ctx) {
     var stageHolder = ctx,
     	platforms = models.stage;
 
 	//create sky
 	ctx.fillStyle = "#33ABF9";
-	ctx.fillRect(20,20,760,560);
+	ctx.fillRect(0,0,800,600);
 
 	//create stage platforms
 	_.each(platforms,function(platform){
@@ -16,28 +29,28 @@ var drawStage = function (ctx) {
     })
 
 }
-var bgImg = new Image();
-		bgImg.src = "/client/textures/test.png";
+
 
 var drawRectangle = function (ctx, platform) {
 	var coordinates = platform.coordinates,
 		texture = platform.texture,
 		start = coordinates.start,
 		size = coordinates.size;
+		
+		if(texture.indexOf('grass') !== -1){
+			ctx.drawImage(grass, start.x-size.x/2,  start.y-size.y/2);		
+		}else if(texture.indexOf('ground') !== -1){
+			ctx.drawImage(ground, start.x-size.x/2,  start.y-size.y/2);
+		}else if(texture.indexOf('bottom') !== -1){
+			ctx.drawImage(bottom, start.x-size.x/2,  start.y-size.y/2);
+		}else if(texture.indexOf('leftwall') !== -1){
+			ctx.drawImage(leftWall, start.x-size.x/2,  start.y-size.y/2);
+		}else if(texture.indexOf('rightwall') !== -1){
+			ctx.drawImage(rightWall, start.x-size.x/2,  start.y-size.y/2);
+		}			
+						
+			
 
-
-
-	if (texture === 'wall'){
-		ctx.fillStyle = 'orange';
-	} else if (texture === 'ground'){
-		ctx.fillStyle = 'saddlebrown';
-	} else if (texture === 'grass'){
-		ctx.fillStyle = 'green';
-	}
-
-	ctx.fillRect(start.x-size.x/2, start.y-size.y/2, size.x, size.y);
-	
-	ctx.drawImage(bgImg, start.x-size.x/2,  start.y-size.y/2);
 		
 }
 
