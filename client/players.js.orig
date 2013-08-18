@@ -57,15 +57,24 @@ var drawSinglePlayer = function (ctx, model) {
 
     ctx.fillStyle = 'black';
     ctx.drawImage(player.face === 'left' ? player.textures.left : player.textures.right, player.x - 10, player.y - 10);
+
+
     ctx.rotate(player.angle * 90);
+
+    drawSinglePlayerLife(ctx, player);
 };
 
 var drawSinglePlayerName = function (ctx, player) {
     ctx.fillStyle = '#222222';
     ctx.font = "bold 9px Arial";
-    ctx.fillText(player.name, player.x - 10, player.y - 15);
+<<<<<<< HEAD
+	ctx.fillText(player.name, player.x - 10, player.y - 16);
+}
+=======
+    ctx.fillText(playerName, player.x - 10, player.y - 15);
 
 };
+>>>>>>> e1fe53199f64baec19716f3f693a10c93a685e8e
 
 var drawSinglePlayerLife = function (ctx, player) {
     var life = player.life,

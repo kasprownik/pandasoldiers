@@ -23,7 +23,7 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'wall',
+            texture: false,
             last: false,
             coordinates: {
                 start: {
