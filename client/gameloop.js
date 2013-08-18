@@ -4,8 +4,8 @@ var config = {
     debug: true,
     stageWidth: 800,
     stageHeight: 600,
-    music: true,
-    shots: true
+    music: false,
+    shots: false
 };
 
 var models = {

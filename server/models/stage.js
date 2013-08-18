@@ -78,6 +78,20 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
+                    x: 160,
+                    y: 60
+                },
+                size: {
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
             texture: 'ground',
             coordinates: {
                 start: {
@@ -100,7 +114,21 @@ function Stage(data) {
                 },
                 size: {
                     x: 40,
-                    y: 80
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'ground',
+            coordinates: {
+                start: {
+                    x: 160,
+                    y: 140
+                },
+                size: {
+                    x: 40,
+                    y: 40
                 }
             }
         },
@@ -137,11 +165,67 @@ function Stage(data) {
             texture: 'grass',
             coordinates: {
                 start: {
+                    x: 280,
+                    y: 60
+                },
+                size: {
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
+                    x: 320,
+                    y: 60
+                },
+                size: {
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
                     x: 440,
                     y: 60
                 },
                 size: {
                     x: 120,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
+                    x: 480,
+                    y: 60
+                },
+                size: {
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
+                    x: 520,
+                    y: 60
+                },
+                size: {
+                    x: 40,
                     y: 40
                 }
             }
@@ -176,6 +260,20 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
+                    x: 640,
+                    y: 60
+                },
+                size: {
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
             texture: 'ground',
             coordinates: {
                 start: {
@@ -198,7 +296,21 @@ function Stage(data) {
                 },
                 size: {
                     x: 40,
-                    y: 80
+                    y: 40
+                }
+            }
+        },
+         {
+            type: 'rectangle',
+            texture: 'ground',
+            coordinates: {
+                start: {
+                    x: 600,
+                    y: 140
+                },
+                size: {
+                    x: 40,
+                    y: 40
                 }
             }
         },
@@ -226,7 +338,21 @@ function Stage(data) {
                 },
                 size: {
                     x: 40,
-                    y: 80
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'ground',
+            coordinates: {
+                start: {
+                    x: 120,
+                    y: 300
+                },
+                size: {
+                    x: 40,
+                    y: 40
                 }
             }
         },
@@ -274,6 +400,20 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
+                    x: 320,
+                    y: 180
+                },
+                size: {
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
             texture: 'ground',
             coordinates: {
                 start: {
@@ -291,11 +431,39 @@ function Stage(data) {
             texture: 'ground',
             coordinates: {
                 start: {
+                    x: 320,
+                    y: 220
+                },
+                size: {
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'ground',
+            coordinates: {
+                start: {
                     x: 440,
                     y: 220
                 },
                 size: {
-                    x: 80,
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'ground',
+            coordinates: {
+                start: {
+                    x: 480,
+                    y: 220
+                },
+                size: {
+                    x: 40,
                     y: 40
                 }
             }
@@ -310,6 +478,20 @@ function Stage(data) {
                 },
                 size: {
                     x: 80,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
+                    x: 480,
+                    y: 180
+                },
+                size: {
+                    x: 40,
                     y: 40
                 }
             }
@@ -367,6 +549,20 @@ function Stage(data) {
                 size: {
                     x: 40,
                     y: 80
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'ground',
+            coordinates: {
+                start: {
+                    x: 640,
+                    y: 300
+                },
+                size: {
+                    x: 40,
+                    y: 40
                 }
             }
         },
@@ -417,11 +613,67 @@ function Stage(data) {
             texture: 'grass',
             coordinates: {
                 start: {
+                    x: 280,
+                    y: 460
+                },
+                size: {
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
                     x: 320,
                     y: 500
                 },
                 size: {
-                    x: 160,
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
+                    x: 360,
+                    y: 500
+                },
+                size: {
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
+                    x: 400,
+                    y: 500
+                },
+                size: {
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
+                    x: 440,
+                    y: 500
+                },
+                size: {
+                    x: 40,
                     y: 40
                 }
             }
@@ -436,6 +688,34 @@ function Stage(data) {
                 },
                 size: {
                     x: 120,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
+                    x: 380,
+                    y: 340
+                },
+                size: {
+                    x: 40,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
+                    x: 420,
+                    y: 340
+                },
+                size: {
+                    x: 40,
                     y: 40
                 }
             }
@@ -464,6 +744,20 @@ function Stage(data) {
                 },
                 size: {
                     x: 80,
+                    y: 40
+                }
+            }
+        },
+        {
+            type: 'rectangle',
+            texture: 'grass',
+            coordinates: {
+                start: {
+                    x: 520,
+                    y: 460
+                },
+                size: {
+                    x: 40,
                     y: 40
                 }
             }
