@@ -110,7 +110,7 @@ physics.moveItem = function (data) {
 
     if (data.action === 'up') {
         angle = 270;
-        force = 7;
+        force = 5;
     }
 
     if (data.action === 'right') {

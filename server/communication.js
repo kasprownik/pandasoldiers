@@ -23,6 +23,24 @@ exports.module = (function () {
                  physics.updateWorld();
                 },16);
 
+
+            var positionTimer = setInterval(function () {
+                var data = physics.getData();
+                _.each(data.players, function (player) {
+                    io.sockets.emit('updatePosition', {player: data.objects[player.id], playerModel: player, id: player.id});
+                    if (player.life <= 0) {
+                        io.sockets.emit('killPlayer', player.id);
+                    }
+                });
+                _.each(data.bullets, function (bullet) {
+                    io.sockets.emit('updatePosition', data.bullets[bullet.id]);
+                    if (data.bullets[bullet.id].kill) {
+                        physics.removeBullet(bullet.id);
+                        io.sockets.emit('removedBullet', bullet.id);
+                    }
+                });
+            }, 32);
+
             io.sockets.on('connection', function (socket) {
                 var currentPlayer;
 
@@ -54,7 +72,7 @@ exports.module = (function () {
                     socket.on('createLevel', function () {
                         socket.emit('createdLevel', physics.createLevel());
                     });
-                    var positionTimer;
+
                     socket.on('createPlayer', function (name) {
                         console.log('name');
                         var player = physics.createPlayer(uuid());
@@ -62,26 +80,6 @@ exports.module = (function () {
                         player.player.name = name;
                         io.sockets.emit('createdPlayer', player);
 
-                        if (positionTimer) {
-                            clearInterval(positionTimer);
-                        }
-
-                        positionTimer = setInterval(function () {
-                            var data = physics.getData();
-                            _.each(data.players, function (player) {
-                                io.sockets.emit('updatePosition', {player: data.objects[player.id], playerModel: player, id: player.id});
-                                if (player.life <= 0) {
-                                    io.sockets.emit('killPlayer', player.id);
-                                }
-                            });
-                            _.each(data.bullets, function (bullet) {
-                                io.sockets.emit('updatePosition', data.bullets[bullet.id]);
-                                if (data.bullets[bullet.id].kill) {
-                                    physics.removeBullet(bullet.id);
-                                    io.sockets.emit('removedBullet', bullet.id);
-                                }
-                            });
-                        }, 32);
 
                     });
 
