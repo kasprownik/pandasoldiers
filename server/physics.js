@@ -86,8 +86,8 @@ physics.updateWorld = function () {
 
         world.current.Step(
             1 / 60,   //frame-rate
-            8,       //velocity iterations
-            3       //position iterations
+            3,       //velocity iterations
+            1       //position iterations
         );
         world.current.ClearForces();
     }

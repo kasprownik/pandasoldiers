@@ -81,7 +81,7 @@ exports.module = (function () {
                                     io.sockets.emit('removedBullet', bullet.id);
                                 }
                             });
-                        }, 16);
+                        }, 32);
 
                     });
 
