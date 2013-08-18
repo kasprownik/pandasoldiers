@@ -50,6 +50,11 @@ exports.module = (function () {
                     physics.moveItem(data);
                 });
 
+                socket.on('shot', function (data) {
+                    var bullet = physics.createBullet(data.id, data.angle);
+                    io.sockets.emit('createdBullet', bullet);
+                });
+
                 socket.on('createLevel', function () {
                     socket.emit('createdLevel', physics.createLevel());
                 });

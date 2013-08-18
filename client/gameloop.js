@@ -4,14 +4,14 @@ var config = {
     debug: true,
     stageWidth: 800,
     stageHeight: 600,
-    music: true,
-    shots: true
+    music: false,
+    shots: false
 };
 
 var models = {
     players: {},
     stage: [],
-    bullets: []
+    bullets: {}
 };
 
 var playerCreated = false;
@@ -50,6 +50,12 @@ window.onload = function () {
         playerCreated = true;
     });
 
+    socket.on('createdBullet', function (data) {
+        models.bullets[data.object.id] = data.object;
+        objects.push(data.object);
+        drawBullets(ctx);
+    });
+
     socket.on('loadedPlayers', function (data) {
         for (var player in data.players) {
             if (data.players.hasOwnProperty(player)) {
@@ -66,9 +72,16 @@ window.onload = function () {
     });
 
     socket.on('updatePosition', function (data) {
-        models.players[data.id].y = data.position.y * 30;
-        models.players[data.id].x = data.position.x * 30;
-        models.players[data.id].angle = data.angle;
+        if (models.players[data.id]) {
+            models.players[data.id].y = data.position.y * 30;
+            models.players[data.id].x = data.position.x * 30;
+            models.players[data.id].angle = data.angle;
+        }
+        if (models.bullets[data.id]) {
+            models.bullets[data.id].y = data.position.y * 30;
+            models.bullets[data.id].x = data.position.x * 30;
+            models.bullets[data.id].angle = data.angle;
+        }
     });
 
     socket.on('disconnected', function (id) {
@@ -81,13 +94,18 @@ window.onload = function () {
             drawStage(ctx);
             drawPlayers(ctx);
             drawDecoration(ctx);
-            moveBullets(ctx);
             drawBullets(ctx);
 
             socket.emit('updateWorld');
             for (var player in models.players) {
                 if (models.players.hasOwnProperty(player)) {
                     socket.emit('getObject', player);
+                }
+            }
+
+            for (var bullet in models.bullets) {
+                if (models.bullets.hasOwnProperty(bullet)) {
+                    socket.emit('getObject', bullet);
                 }
             }
 
