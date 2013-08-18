@@ -79,11 +79,20 @@ window.onload = function () {
             models.players[data.id].angle = data.angle;
         }
         if (models.bullets[data.id]) {
+            if (data.kill) {
+                socket.emit('removeBullet', data.id);
+            }
             models.bullets[data.id].y = data.position.y * 30;
             models.bullets[data.id].x = data.position.x * 30;
             models.bullets[data.id].angle = data.angle;
+
         }
     });
+
+    socket.on('removedBullet', function (id) {
+        delete models.bullets[id];
+    });
+
 
     socket.on('disconnected', function (id) {
         delete models.players[id];

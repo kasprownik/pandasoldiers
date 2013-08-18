@@ -9,6 +9,7 @@ function Stage(data) {
         {
             type: 'rectangle',
             texture: 'leftwall',
+            last: false,
             coordinates: {
                 start: {
                     x: 0,
@@ -23,6 +24,7 @@ function Stage(data) {
         {
             type: 'rectangle',
             texture: 'wall',
+            last: false,
             coordinates: {
                 start: {
                     x: 20,
@@ -37,6 +39,7 @@ function Stage(data) {
         {
             type: 'rectangle',
             texture: 'bottom',
+            last: false,
             coordinates: {
                 start: {
                     x: 0,
@@ -51,6 +54,7 @@ function Stage(data) {
         {
             type: 'rectangle',
             texture: 'rightwall',
+            last: false,
             coordinates: {
                 start: {
                     x: 780,
@@ -64,21 +68,23 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassLeft',
+            last: false,
             coordinates: {
                 start: {
                     x: 120,
                     y: 60
                 },
                 size: {
-                    x: 80,
+                    x: 40,
                     y: 40
                 }
             }
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassRight',
+            last: false,
             coordinates: {
                 start: {
                     x: 160,
@@ -92,7 +98,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundLeft',
+            last: true,
             coordinates: {
                 start: {
                     x: 120,
@@ -107,6 +114,7 @@ function Stage(data) {
         {
             type: 'rectangle',
             texture: 'ground',
+            last: false,
             coordinates: {
                 start: {
                     x: 160,
@@ -120,7 +128,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundSingle',
+            last: true,
             coordinates: {
                 start: {
                     x: 160,
@@ -134,7 +143,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassRight',
+            last: true,
             coordinates: {
                 start: {
                     x: 200,
@@ -148,7 +158,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassLeft',
+            last: true,
             coordinates: {
                 start: {
                     x: 240,
@@ -163,6 +174,7 @@ function Stage(data) {
         {
             type: 'rectangle',
             texture: 'grass',
+            last: true,
             coordinates: {
                 start: {
                     x: 280,
@@ -176,7 +188,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassRight',
+            last: true,
             coordinates: {
                 start: {
                     x: 320,
@@ -190,7 +203,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassLeft',
+            last: true,
             coordinates: {
                 start: {
                     x: 440,
@@ -205,6 +219,7 @@ function Stage(data) {
         {
             type: 'rectangle',
             texture: 'grass',
+            last: true,
             coordinates: {
                 start: {
                     x: 480,
@@ -218,7 +233,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassRight',
+            last: true,
             coordinates: {
                 start: {
                     x: 520,
@@ -232,7 +248,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassLeft',
+            last: true,
             coordinates: {
                 start: {
                     x: 560,
@@ -246,7 +263,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassLeft',
+            last: false,
             coordinates: {
                 start: {
                     x: 600,
@@ -260,7 +278,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassRight',
+            last: false,
             coordinates: {
                 start: {
                     x: 640,
@@ -274,7 +293,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundRight',
+            last: true,
             coordinates: {
                 start: {
                     x: 640,
@@ -289,6 +309,7 @@ function Stage(data) {
         {
             type: 'rectangle',
             texture: 'ground',
+            last: false,
             coordinates: {
                 start: {
                     x: 600,
@@ -302,7 +323,8 @@ function Stage(data) {
         },
          {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundSingle',
+            last: true,
             coordinates: {
                 start: {
                     x: 600,
@@ -316,7 +338,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassSingle',
+            last: false,
             coordinates: {
                 start: {
                     x: 120,
@@ -330,7 +353,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundSingle',
+            last: false,
             coordinates: {
                 start: {
                     x: 120,
@@ -344,7 +368,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundSingle',
+            last: true,
             coordinates: {
                 start: {
                     x: 120,
@@ -358,7 +383,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassLeft',
+            last: false,
             coordinates: {
                 start: {
                     x: 240,
@@ -372,7 +398,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundLeft',
+            last: true,
             coordinates: {
                 start: {
                     x: 240,
@@ -386,7 +413,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundRight',
+            last: true,
             coordinates: {
                 start: {
                     x: 280,
@@ -400,7 +428,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassLeft',
+            last: false,
             coordinates: {
                 start: {
                     x: 280,
@@ -414,7 +443,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassRight',
+            last: false,
             coordinates: {
                 start: {
                     x: 320,
@@ -429,6 +459,7 @@ function Stage(data) {
         {
             type: 'rectangle',
             texture: 'ground',
+            last: false,
             coordinates: {
                 start: {
                     x: 280,
@@ -442,7 +473,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundRight',
+            last: true,
             coordinates: {
                 start: {
                     x: 320,
@@ -456,7 +488,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundLeft',
+            last: true,
             coordinates: {
                 start: {
                     x: 440,
@@ -471,6 +504,7 @@ function Stage(data) {
         {
             type: 'rectangle',
             texture: 'ground',
+            last: false,
             coordinates: {
                 start: {
                     x: 480,
@@ -484,7 +518,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassLeft',
+            last: false,
             coordinates: {
                 start: {
                     x: 440,
@@ -498,7 +533,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassRight',
+            last: false,
             coordinates: {
                 start: {
                     x: 480,
@@ -512,7 +548,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassRight',
+            last: false,
             coordinates: {
                 start: {
                     x: 520,
@@ -526,7 +563,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundRight',
+            last: true,
             coordinates: {
                 start: {
                     x: 520,
@@ -540,7 +578,8 @@ function Stage(data) {
         },
            {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundLeft',
+            last: true,
             coordinates: {
                 start: {
                     x: 480,
@@ -554,7 +593,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassSingle',
+            last: false,
             coordinates: {
                 start: {
                     x: 640,
@@ -568,7 +608,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundSingle',
+            last: false,
             coordinates: {
                 start: {
                     x: 640,
@@ -582,7 +623,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundSingle',
+            last: true,
             coordinates: {
                 start: {
                     x: 640,
@@ -596,7 +638,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassSingle',
+            last: false,
             coordinates: {
                 start: {
                     x: 200,
@@ -610,7 +653,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundSingle',
+            last: true,
             coordinates: {
                 start: {
                     x: 200,
@@ -624,7 +668,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassLeft',
+            last: true,
             coordinates: {
                 start: {
                     x: 240,
@@ -638,7 +683,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassRight',
+            last: true,
             coordinates: {
                 start: {
                     x: 280,
@@ -652,7 +698,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassLeft',
+            last: true,
             coordinates: {
                 start: {
                     x: 320,
@@ -667,6 +714,7 @@ function Stage(data) {
         {
             type: 'rectangle',
             texture: 'grass',
+            last: true,
             coordinates: {
                 start: {
                     x: 360,
@@ -681,6 +729,7 @@ function Stage(data) {
         {
             type: 'rectangle',
             texture: 'grass',
+            last: true,
             coordinates: {
                 start: {
                     x: 400,
@@ -694,7 +743,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassRight',
+            last: true,
             coordinates: {
                 start: {
                     x: 440,
@@ -708,7 +758,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassLeft',
+            last: true,
             coordinates: {
                 start: {
                     x: 340,
@@ -723,6 +774,7 @@ function Stage(data) {
         {
             type: 'rectangle',
             texture: 'grass',
+            last: false,
             coordinates: {
                 start: {
                     x: 380,
@@ -736,7 +788,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassRight',
+            last: true,
             coordinates: {
                 start: {
                     x: 420,
@@ -750,7 +803,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundSingle',
+            last: true,
             coordinates: {
                 start: {
                     x: 380,
@@ -764,7 +818,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassLeft',
+            last: true,
             coordinates: {
                 start: {
                     x: 480,
@@ -778,7 +833,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassRight',
+            last: true,
             coordinates: {
                 start: {
                     x: 520,
@@ -792,7 +848,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'grass',
+            texture: 'grassSingle',
+            last: false,
             coordinates: {
                 start: {
                     x: 560,
@@ -806,7 +863,8 @@ function Stage(data) {
         },
         {
             type: 'rectangle',
-            texture: 'ground',
+            texture: 'groundSingle',
+            last: true,
             coordinates: {
                 start: {
                     x: 560,
