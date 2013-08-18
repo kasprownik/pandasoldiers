@@ -78,7 +78,7 @@
 
     if (init()) {
         window.playShot = function () {
-            startSound();
+        //    startSound();
         };
     }
 })();

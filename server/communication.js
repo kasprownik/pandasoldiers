@@ -19,12 +19,10 @@ exports.module = (function () {
                 ]);
             });
 
+            physics.init();
 
             io.sockets.on('connection', function (socket) {
-
-                socket.on('createWorld', function () {
-                    physics.init();
-                });
+                var currentPlayer;
 
                 socket.on('createStaticObject', function (data) {
                     var object = physics.createStaticObject(data);
@@ -41,35 +39,62 @@ exports.module = (function () {
                 });
 
                 socket.on('getObject', function (id) {
-                    if (physics.getObject(id)) {
-                        socket.emit('updatePosition', physics.getObject(id));
+                    var object = physics.getObject(id);
+
+                    if (object) {
+                        socket.emit('updatePosition', object);
                     }
                 });
+
+                socket.on('movePlayer', function (data) {
+                    physics.moveItem(data);
+                });
+
+                socket.on('createLevel', function () {
+                    socket.emit('createdLevel', physics.createLevel());
+                });
+
+                socket.on('createPlayer', function () {
+                    var player = physics.createPlayer(uuid());
+                    currentPlayer = player.id;
+                    io.sockets.emit('createdPlayer', player);
+                });
+
+                socket.on('loadPlayers', function () {
+                    socket.emit('loadedPlayers', physics.getPlayers());
+                });
+                socket.on('disconnect', function () {
+                    physics.removePlayer(currentPlayer);
+                    io.sockets.emit('disconnected', currentPlayer);
+                });
+
 
             });
 
             io.sockets.on('connection', function (socket) {
-                module.bindConnection(io.sockets, socket);
+                //    module.bindConnection(io.sockets, socket);
             });
         },
         bindConnection: function (sockets, socket) {
-            var playerId = uuid();
+            //  var playerId = uuid();
 
-            ps.publish('createPlayer', playerId);
+            //  ps.publish('createPlayer', playerId);
 
-            socket.on('movePlayer', function (data) {
-                console.log(data);
-                ps.publish('movePlayer', {playerId: playerId, action: data.action});
-            });
+            //        socket.on('movePlayer', function (data) {
+            //          console.log(data);
+            //        ps.publish('movePlayer', {playerId: playerId, action: data.action});
+            //   });
 
-            socket.on('shot', function (data) {
-                console.log(data);
-                ps.publish('createBullet', {playerId: playerId, angle: data.action});
-            });
+            //    socket.on('shot', function (data) {
+            //        console.log(data);
+            //        ps.publish('createBullet', {playerId: playerId, angle: data.action});
+            //    });
 
-            socket.on('disconnect', function () {
-                ps.publish('removePlayer', {playerId: playerId});
-            });
+            //    socket.on('disconnect', function () {
+            //        ps.publish('removePlayer', {playerId: playerId});
+            //    });
+
+
         }
     };
 

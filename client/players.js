@@ -14,7 +14,9 @@ var drawSinglePlayer = function (ctx, model) {
     var player = model;
 
     ctx.fillStyle = 'black';
-    ctx.fillRect(player.x, player.y, 20, 20);
+    ctx.fillRect(player.x-10, player.y-10, 20, 20);
+
+    ctx.rotate(player.angle*90);
 
     drawSinglePlayerLife(ctx, player)
 
@@ -36,5 +38,5 @@ var drawSinglePlayerLife = function (ctx, player) {
 		ctx.fillStyle = 'red';
 	}
 	
-	ctx.fillRect(player.x, player.y-3, barLength, 2);
+	ctx.fillRect(player.x-10, player.y-13, barLength, 2);
 }

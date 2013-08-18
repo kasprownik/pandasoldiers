@@ -13,20 +13,20 @@ function runInputCapturing(socket) {
         RIGHT: 39
     };
 
-    document.addEventListener('keyup', function (event) {
+    document.addEventListener('keydown', function (event) {
 
         switch (event.keyCode) {
 
             case KEY.UP:
-                sendInput(socket, 'movePlayer', {action: "up"});
+                sendInput(socket, 'movePlayer', {action: "up", id: window.playerID});
                 break;
 
             case KEY.LEFT:
-                sendInput(socket, 'movePlayer', {action: "left"});
+                sendInput(socket, 'movePlayer', {action: "left", id: window.playerID});
                 break;
 
             case KEY.RIGHT:
-                sendInput(socket, 'movePlayer', {action: "right"});
+                sendInput(socket, 'movePlayer', {action: "right", id: window.playerID});
                 break;
         }
 

@@ -18,6 +18,12 @@ physics.init = function () {
 
 };
 
+physics.createLevel = function () {
+    'use strict';
+
+    return stage.draw();
+};
+
 physics.events = function () {
     'use strict';
 
@@ -44,10 +50,11 @@ physics.createDynamicObject = function (data) {
 physics.updateWorld = function () {
     'use strict';
     if (world.current.Step) {
+
         world.current.Step(
             1 / 60,   //frame-rate
-            8,       //velocity iterations
-            3       //position iterations
+            3,       //velocity iterations
+            1       //position iterations
         );
         world.current.ClearForces();
     }
@@ -56,17 +63,61 @@ physics.updateWorld = function () {
 physics.getObject = function (id) {
     'use strict';
 
-    return world.objects[id];
+    var object = world.objects[id];
+
+    return object;
 };
 
-physics.createPlayer = function (data) {
+physics.moveItem = function (data) {
     'use strict';
 
-    var playerID = data.playerID;
+    var body = world.bodies[data.id],
+        angle,
+        force;
 
-    console.log('createPlayer');
+    if (data.action === 'up') {
+        angle = 270;
+        force = 4;
+    }
 
-   // return world.createObject(data.width, data.height, data.x, data.y, b2Body.b2_dynamicBody, data.id);
+    if (data.action === 'right') {
+        angle = 1;
+        force = 1;
+    }
+
+    if (data.action === 'left') {
+        angle = 179;
+        force = 1;
+    }
+
+    world.moveItem(body, angle, force);
+};
+
+physics.createPlayer = function (playerID) {
+    'use strict';
+
+    var player = new playerModel({playerID: playerID, pX: 50, pY: 50});
+
+    world.createObject(20, 20, 100, 100, b2Body.b2_dynamicBody, playerID);
+    world.players[playerID] = player;
+
+    return {id: playerID, player: world.players[playerID], object: world.objects[playerID]};
+};
+
+physics.getPlayers = function () {
+    'use strict';
+
+    return {players: world.players, objects: world.objects};
+};
+
+physics.removePlayer = function (playerID) {
+    'use strict';
+    if (world.players && world.players[playerID]) {
+        delete world.players[playerID];
+        delete world.objects[playerID];
+        world.removeBody(playerID);
+        delete world.bodies[playerID];
+    }
 };
 
 physics.movePlayer = function (data) {
@@ -77,15 +128,6 @@ physics.movePlayer = function (data) {
 
     console.log('movePlayer');
 };
-
-physics.removePlayer = function (data) {
-    'use strict';
-
-    var playerID = data.playerID;
-
-    console.log('removePlayer');
-};
-
 
 physics.createBullet = function (data) {
     'use strict';

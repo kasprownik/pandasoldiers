@@ -5,31 +5,19 @@ function Player(data) {
         return new Player(data);
     }
 
-    this.id = 1;
+    this.id = data.playerID;
     this.face = 'left';
-    this.x = 0;
-    this.y = 0;
+    this.x = data.pX;
+    this.y = data.pY;
     this.velocity = 0;
-    this.width = 10;
-    this.height = 10;
+    this.width = 20;
+    this.height = 20;
     this.name = 'Name';
-    this.life = 3;
-
-    return this;
+    this.life = 100;
 
 }
 
 Player.prototype = {
-
-    add: function () {
-
-    },
-    move: function () {
-
-    },
-    remove: function () {
-
-    }
 
 };
 

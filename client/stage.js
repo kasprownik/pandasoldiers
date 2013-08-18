@@ -6,13 +6,13 @@ var drawStage = function (ctx) {
 	ctx.fillStyle = "#33ABF9";
 	ctx.fillRect(20,20,760,560);
 
-	//create stage platforms    	
+	//create stage platforms
 	_.each(platforms,function(platform){
 		switch(platform.type){
 		case "rectangle":
     		drawRectangle(ctx,platform);
 			break;
-		}	
+		}
     })
 
 }
@@ -22,7 +22,7 @@ var drawRectangle = function (ctx, platform) {
 		texture = platform.texture,
 		start = coordinates.start,
 		size = coordinates.size;
-	
+
 	if (texture === 'wall'){
 		ctx.fillStyle = 'orange';
 	} else if (texture === 'ground'){
@@ -30,8 +30,7 @@ var drawRectangle = function (ctx, platform) {
 	} else if (texture === 'grass'){
 		ctx.fillStyle = 'green';
 	}
-	
-	ctx.fillRect(start.x, start.y, size.x, size.y);
+	ctx.fillRect(start.x-size.x/2, start.y-size.y/2, size.x, size.y);
 }
 
 var drawDecoration = function (ctx) {
@@ -48,15 +47,15 @@ var drawDecoration = function (ctx) {
 
 			//create decoration grass
 			ctx.fillStyle = 'darkgreen';
-			ctx.fillRect(start.x, start.y-offset, size.x, offset);
+		//	ctx.fillRect(start.x, start.y-offset, size.x, offset);
     	}else if(platform.texture === 'ground'){
 			start = platform.coordinates.start,
 			size = platform.coordinates.size;
 
 			//create decoration grass
 			ctx.fillStyle = 'brown';
-			ctx.fillRect(start.x, start.y+size.y, size.x, offset);
+		//	ctx.fillRect(start.x, start.y+size.y, size.x, offset);
     	}
     });
-	
+
 }

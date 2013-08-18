@@ -9,516 +9,12 @@ var config = {
 };
 
 var models = {
-    players: [
-        {
-            x: 32,
-            y: 32,
-            name: 'john',
-            life: 100
-        },
-        {
-            x: 200,
-            y: 200,
-            name: 'merry',
-            life: 65
-        }
-    ],
-    stage: [
-        {
-            type: 'rectangle',
-            texture: 'wall',
-            coordinates: {
-                start: {
-                    x: 0,
-                    y: 0
-                },
-                size: {
-                    x: 20,
-                    y: 580
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'wall',
-            coordinates: {
-                start: {
-                    x: 20,
-                    y: 0
-                },
-                size: {
-                    x: 780,
-                    y: 20
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 0,
-                    y: 580
-                },
-                size: {
-                    x: 800,
-                    y: 20
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'wall',
-            coordinates: {
-                start: {
-                    x: 780,
-                    y: 20
-                },
-                size: {
-                    x: 20,
-                    y: 560
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 120,
-                    y: 60
-                },
-                size: {
-                    x: 80,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'ground',
-            coordinates: {
-                start: {
-                    x: 120,
-                    y: 100
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'ground',
-            coordinates: {
-                start: {
-                    x: 160,
-                    y: 100
-                },
-                size: {
-                    x: 40,
-                    y: 80
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 200,
-                    y: 100
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 240,
-                    y: 60
-                },
-                size: {
-                    x: 120,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 440,
-                    y: 60
-                },
-                size: {
-                    x: 120,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 560,
-                    y: 100
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 600,
-                    y: 60
-                },
-                size: {
-                    x: 80,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'ground',
-            coordinates: {
-                start: {
-                    x: 640,
-                    y: 100
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'ground',
-            coordinates: {
-                start: {
-                    x: 600,
-                    y: 100
-                },
-                size: {
-                    x: 40,
-                    y: 80
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 120,
-                    y: 220
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'ground',
-            coordinates: {
-                start: {
-                    x: 120,
-                    y: 260
-                },
-                size: {
-                    x: 40,
-                    y: 80
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 240,
-                    y: 220
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'ground',
-            coordinates: {
-                start: {
-                    x: 240,
-                    y: 260
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 280,
-                    y: 180
-                },
-                size: {
-                    x: 80,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'ground',
-            coordinates: {
-                start: {
-                    x: 280,
-                    y: 220
-                },
-                size: {
-                    x: 80,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'ground',
-            coordinates: {
-                start: {
-                    x: 440,
-                    y: 220
-                },
-                size: {
-                    x: 80,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 440,
-                    y: 180
-                },
-                size: {
-                    x: 80,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 520,
-                    y: 220
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'ground',
-            coordinates: {
-                start: {
-                    x: 520,
-                    y: 260
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 640,
-                    y: 220
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'ground',
-            coordinates: {
-                start: {
-                    x: 640,
-                    y: 260
-                },
-                size: {
-                    x: 40,
-                    y: 80
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 200,
-                    y: 380
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'ground',
-            coordinates: {
-                start: {
-                    x: 200,
-                    y: 420
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 240,
-                    y: 460
-                },
-                size: {
-                    x: 80,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 320,
-                    y: 500
-                },
-                size: {
-                    x: 160,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 340,
-                    y: 340
-                },
-                size: {
-                    x: 120,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'ground',
-            coordinates: {
-                start: {
-                    x: 380,
-                    y: 380
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 480,
-                    y: 460
-                },
-                size: {
-                    x: 80,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'grass',
-            coordinates: {
-                start: {
-                    x: 560,
-                    y: 380
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        },
-        {
-            type: 'rectangle',
-            texture: 'ground',
-            coordinates: {
-                start: {
-                    x: 560,
-                    y: 420
-                },
-                size: {
-                    x: 40,
-                    y: 40
-                }
-            }
-        }
-
-
-    ],
+    players: {},
+    stage: [],
     bullets: []
 };
+
+var playerCreated = false;
 
 window.onload = function () {
     'use strict';
@@ -526,8 +22,7 @@ window.onload = function () {
     window.canvasNode = document.getElementById('game');
     window.ctx = canvasNode.getContext('2d');
 
-    var world = false,
-        objects = [],
+    var objects = [],
         socket = config.debug ? io.connect('http://localhost:8080') :
             io.connect('ws://pandasoldiers-cognifideninjas.rhcloud.com:8000');
 
@@ -535,37 +30,68 @@ window.onload = function () {
         objects.push(data);
     });
 
-    socket.emit('createWorld');
+    socket.emit('createLevel');
+    socket.emit('loadPlayers');
+    socket.emit('createPlayer');
 
-    socket.emit('createDynamicObject', {
-        x: 5,
-        y: 5,
-        width: 10,
-        height: 3,
-        id: 1
+    socket.on('createdLevel', function (data) {
+        models.stage = data;
+        drawStage(ctx);
+        drawPlayers(ctx);
+    });
+
+
+    socket.on('createdPlayer', function (data) {
+        if (!playerCreated) {
+            window.playerID = data.id;
+        }
+        models.players[data.id] = data.player;
+        objects.push(data.object);
+        playerCreated = true;
+    });
+
+    socket.on('loadedPlayers', function (data) {
+        for (var player in data.players) {
+            if (data.players.hasOwnProperty(player)) {
+                var currentPlayer = data.players[player];
+                models.players[currentPlayer.id] = currentPlayer;
+            }
+        }
+        for (var object in data.objects) {
+            if (data.objects.hasOwnProperty(object)) {
+                var currentObject = data.objects[object];
+                objects.push(currentObject);
+            }
+        }
     });
 
     socket.on('updatePosition', function (data) {
-        // console.log(data.position.y);
+        models.players[data.id].y = data.position.y * 30;
+        models.players[data.id].x = data.position.x * 30;
+        models.players[data.id].angle = data.angle;
+    });
+
+    socket.on('disconnected', function (id) {
+        delete models.players[id];
     });
 
     function render() {
-        clearCanvas(ctx);
-        drawStage(ctx);
-        drawPlayers(ctx);
-        drawDecoration(ctx);
-        moveBullets(ctx);
-        drawBullets(ctx);
-        //     console.log('loop iteration begins');
-        //     clearCanvas(ctx);
-        //     drawStage(ctx);
-        //     drawPlayers(ctx);
-        //     moveBullets(ctx);
-        //     drawBullets(ctx);
+        if (models.stage.length) {
+            clearCanvas(ctx);
+            drawStage(ctx);
+            drawPlayers(ctx);
+            drawDecoration(ctx);
+            moveBullets(ctx);
+            drawBullets(ctx);
 
-        //       console.log(objects);
-        socket.emit('updateWorld');
-        socket.emit('getObject', 1);
+            socket.emit('updateWorld');
+            for (var player in models.players) {
+                if (models.players.hasOwnProperty(player)) {
+                    socket.emit('getObject', player);
+                }
+            }
+
+        }
     }
 
     runInputCapturing(socket);
