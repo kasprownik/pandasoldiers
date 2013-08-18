@@ -1,6 +1,12 @@
 
 body {
     background: url('../textures/bamboo-blur-new.jpg') repeat;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 html {
@@ -12,7 +18,7 @@ html {
     border: 1px solid #ccc;
     width: 800px;
     margin: 0 auto;
-    cursor: crosshair;
+    cursor: url('/client/textures/crosshair.png'), none;
 }
 
 .player-form {
