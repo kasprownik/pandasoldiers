@@ -5,8 +5,7 @@ var box2D = require('./../lib/box2d.js').Box2D
     , playerModel = require('./models/player.js').playerModel
     , stageModel = require('./models/stage.js').stageModel
     , b2Body = box2D.Dynamics.b2Body
-    , b2Dynamics = box2D.Dynamics.b2ContactListener
-    , ps = require('../lib/pubsub.js');
+    , b2Dynamics = box2D.Dynamics.b2ContactListener;
 
 
 var physics = {};
