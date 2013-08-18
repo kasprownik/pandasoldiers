@@ -51,9 +51,10 @@ exports.module = (function () {
                 });
                 var positionTimer;
                 socket.on('createPlayer', function (name) {
+                    console.log('name');
                     var player = physics.createPlayer(uuid());
                     currentPlayer = player.id;
-                    player.name = name;
+                    player.player.name = name;
                     io.sockets.emit('createdPlayer', player);
 
                     if (positionTimer) {
