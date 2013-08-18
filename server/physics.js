@@ -85,11 +85,13 @@ physics.moveItem = function (data) {
     }
 
     if (data.action === 'right') {
+        world.objects[data.id].face = 'right';
         angle = 1;
         force = 2;
     }
 
     if (data.action === 'left') {
+        world.objects[data.id].face = 'left';
         angle = 179;
         force = 2;
     }

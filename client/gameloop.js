@@ -49,6 +49,7 @@ function startGame() {
         models.players[data.id] = data.player;
         objects.push(data.object);
         playerCreated = true;
+        preparePlayerTextures();
     });
 
     socket.on('createdBullet', function (data) {
@@ -70,6 +71,8 @@ function startGame() {
                 objects.push(currentObject);
             }
         }
+
+        preparePlayerTextures();
     });
 
     socket.on('updatePosition', function (data) {
@@ -77,6 +80,7 @@ function startGame() {
             models.players[data.id].y = data.position.y * 30;
             models.players[data.id].x = data.position.x * 30;
             models.players[data.id].angle = data.angle;
+            models.players[data.id].face = data.face;
         } else if (models.bullets[data.id]) {
 
             models.bullets[data.id].y = data.position.y * 30;
@@ -110,7 +114,6 @@ function startGame() {
     runModelUpdating(socket);
 
     playMusic('client/audio/music.mp3', true);
-
     (function animloop() {
         window.requestAnimationFrame(animloop);
         render();
