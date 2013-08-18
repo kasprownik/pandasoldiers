@@ -31,10 +31,12 @@ function runInputCapturing(socket) {
 
             case KEY.LEFT:
                 sendInput(socket, 'movePlayer', {action: "left", id: window.playerID});
+                window.currentFace = 'left';
                 break;
 
             case KEY.RIGHT:
                 sendInput(socket, 'movePlayer', {action: "right", id: window.playerID});
+                window.currentFace = 'right';
                 break;
         }
 
