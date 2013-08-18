@@ -107,14 +107,14 @@ world.createKineticObject = function (width, height, pX, pY, type, id) {
 
 world.moveItem = function (body, angle, force) {
     'use strict';
+    if (body) {
+        var vector = new b2Vec2(
+            Math.cos(angle * (Math.PI / 180)) * force,
+            Math.sin(angle * (Math.PI / 180)) * force
+        );
 
-    var vector = new b2Vec2(
-        Math.cos(angle * (Math.PI / 180)) * force,
-        Math.sin(angle * (Math.PI / 180)) * force
-    );
-
-    body.ApplyImpulse(vector, body.GetWorldCenter());
-
+        body.ApplyImpulse(vector, body.GetWorldCenter());
+    }
 };
 
 world.linearVelocity = function (body, angle, force) {
