@@ -19,6 +19,7 @@ var playerCreated = false;
 function startGame() {
     'use strict';
 
+
     window.canvasNode = document.getElementById('game');
     window.ctx = canvasNode.getContext('2d');
 
@@ -78,11 +79,21 @@ function startGame() {
             models.players[data.id].angle = data.angle;
         }
         if (models.bullets[data.id]) {
+
+            if (data.kill) {
+                socket.emit('removeBullet', data.id);
+            }
             models.bullets[data.id].y = data.position.y * 30;
             models.bullets[data.id].x = data.position.x * 30;
             models.bullets[data.id].angle = data.angle;
+
         }
     });
+
+    socket.on('removedBullet', function (id) {
+        delete models.bullets[id];
+    });
+
 
     socket.on('disconnected', function (id) {
         delete models.players[id];
@@ -97,18 +108,6 @@ function startGame() {
             drawBullets(ctx);
 
             socket.emit('updateWorld');
-            for (var player in models.players) {
-                if (models.players.hasOwnProperty(player)) {
-                    socket.emit('getObject', player);
-                }
-            }
-
-            for (var bullet in models.bullets) {
-                if (models.bullets.hasOwnProperty(bullet)) {
-                    socket.emit('getObject', bullet);
-                }
-            }
-
         }
     }
 

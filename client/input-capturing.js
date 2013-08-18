@@ -18,7 +18,7 @@ function runInputCapturing(socket) {
         RIGHT: 68
     };
 
-    document.addEventListener('keydown', _.throttle(function (event) {
+    document.addEventListener('keydown', function (event) {
 
         switch (event.keyCode) {
 
@@ -31,14 +31,16 @@ function runInputCapturing(socket) {
 
             case KEY.LEFT:
                 sendInput(socket, 'movePlayer', {action: "left", id: window.playerID});
+                window.currentFace = 'left';
                 break;
 
             case KEY.RIGHT:
                 sendInput(socket, 'movePlayer', {action: "right", id: window.playerID});
+                window.currentFace = 'right';
                 break;
         }
 
-    }, 250), false);
+    }, false);
 
     document.addEventListener('keyup', function (event) {
 
