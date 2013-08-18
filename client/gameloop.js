@@ -1,7 +1,7 @@
 /* global io: true */
 
 var config = {
-    debug: false,
+    debug: true,
     stageWidth: 800,
     stageHeight: 600,
     music: true,
@@ -39,6 +39,10 @@ function startGame() {
         models.stage = data;
         drawStage(ctx);
         drawPlayers(ctx);
+    });
+
+    socket.on('userLimit', function () {
+        alert('Maximum user number has been reached. Try again later.');
     });
 
 
