@@ -12,10 +12,8 @@ var drawSingleBullet = function (ctx, model) {
     var bullet = model;
 
     if (bullet) {
-        ctx.fillStyle = 'red';
+        ctx.fillStyle = 'black';
+        ctx.fillRect(bullet.x - 2, bullet.y - 2, 4, 4);
 
-        ctx.fillRect(bullet.x - 10, bullet.y  - 1, 20, 2);
-
-        ctx.rotate(bullet.angle * 90);
     }
 };

@@ -39,14 +39,55 @@ world.createObject = function (width, height, pX, pY, type, id) {
     bodyDef.type = type;
     bodyDef.position.Set((pX + width / 2) / world.scale, (pY + height / 2) / world.scale);
     polygonShape = new b2PolygonShape();
-    polygonShape.SetAsBox(width / world.scale / 2, height / world.scale / 2);
 
     fixtureDef = new b2FixtureDef();
-    fixtureDef.density = 1.0;
+    fixtureDef.density = 1;
     fixtureDef.friction = 0.5;
     fixtureDef.restitution = 0.2;
     fixtureDef.shape = polygonShape;
+    fixtureDef.shape.SetAsBox(width / world.scale / 2, height / world.scale / 2);
     body = world.current.CreateBody(bodyDef);
+    item = body.CreateFixture(fixtureDef);
+    itemDefinition = item.GetBody().GetDefinition();
+    itemDefinition.id = id;
+    fixtureDefinition = item.GetAABB();
+
+    itemDefinition.size = {
+        width: fixtureDefinition.upperBound.x - fixtureDefinition.lowerBound.x,
+        height: fixtureDefinition.upperBound.y - fixtureDefinition.lowerBound.y
+    };
+    world.bodies[id] = body;
+    world.objects[id] = itemDefinition;
+    return {
+        itemDefinition: itemDefinition
+    };
+};
+
+
+world.createKineticObject = function (width, height, pX, pY, type, id) {
+    'use strict';
+
+    var bodyDef,
+        polygonShape,
+        fixtureDef,
+        body,
+        item,
+        fixtureDefinition,
+        itemDefinition;
+
+    bodyDef = new b2BodyDef();
+    bodyDef.type = type;
+    bodyDef.position.Set((pX + width / 2) / world.scale, (pY + height / 2) / world.scale);
+    polygonShape = new b2PolygonShape();
+
+    fixtureDef = new b2FixtureDef();
+    fixtureDef.density = 0.1;
+    fixtureDef.friction = 1;
+    fixtureDef.restitution = 0;
+    fixtureDef.shape = polygonShape;
+    fixtureDef.shape.SetAsBox(width / world.scale / 2, height / world.scale / 2);
+    body = world.current.CreateBody(bodyDef);
+    body.SetUserData({id: id});
     item = body.CreateFixture(fixtureDef);
     itemDefinition = item.GetBody().GetDefinition();
     itemDefinition.id = id;

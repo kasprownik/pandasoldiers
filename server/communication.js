@@ -63,6 +63,7 @@ exports.module = (function () {
                     var player = physics.createPlayer(uuid());
                     currentPlayer = player.id;
                     io.sockets.emit('createdPlayer', player);
+
                 });
 
                 socket.on('loadPlayers', function () {
@@ -71,6 +72,11 @@ exports.module = (function () {
                 socket.on('disconnect', function () {
                     physics.removePlayer(currentPlayer);
                     io.sockets.emit('disconnected', currentPlayer);
+                });
+
+                socket.on('removeBullet', function (id) {
+                    physics.removeBullet(id);
+                    io.sockets.emit('removedBullet', id);
                 });
             });
         }
