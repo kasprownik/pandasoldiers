@@ -123,16 +123,17 @@ physics.removePlayer = function (playerID) {
 physics.createBullet = function (playerID, angle) {
     'use strict';
     var player = world.objects[playerID],
+        timestamp = new Date().getTime(),
         data = {
-            id: 'bullet' + playerID,
+            id: 'bullet' + playerID + timestamp,
             angle: angle
         };
     if (player) {
-        world.createObject(20, 20, player.position.x * world.scale, player.position.y * world.scale, b2Body.b2_kinematicBody, 'bullet' + playerID);
+        world.createObject(20, 20, player.position.x * world.scale, player.position.y * world.scale, b2Body.b2_kinematicBody, data.id);
         physics.flyItem(data);
-        world.objects['bullet' + playerID].angle = angle;
+        world.objects[ data.id].angle = angle;
     }
-    return {object: world.objects['bullet' + playerID]};
+    return {object: world.objects[data.id]};
 };
 
 exports.physics = physics;
