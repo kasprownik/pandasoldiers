@@ -1,7 +1,7 @@
 /* global io: true */
 
 var config = {
-    debug: false,
+    debug: true,
     stageWidth: 800,
     stageHeight: 600,
     music: true,
@@ -24,7 +24,7 @@ function startGame() {
     window.ctx = canvasNode.getContext('2d');
 
     var objects = [],
-        socket = config.debug ? io.connect('http://localhost:8080') :
+        socket = config.debug ? io.connect('ws://109.173.132.201') :
             io.connect('ws://pandasoldierssc-cognifideninjas.rhcloud.com:8000');
 
     socket.on('objectCreated', function (data) {
@@ -117,8 +117,6 @@ function startGame() {
             drawPlayers(ctx);
             drawDecoration(ctx);
             drawBullets(ctx);
-
-            socket.emit('updateWorld');
         }
     }
 

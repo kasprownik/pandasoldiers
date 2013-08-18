@@ -18,12 +18,15 @@ physics.init = function () {
 
     var listener = new b2Dynamics();
     listener.BeginContact = function (contact) {
-        var userData;
+        var userData,
+            bulletID = false;
 
         if (contact.GetFixtureA().GetDensity() === 0.1 || contact.GetFixtureB().GetDensity() === 0.1) {
-            var bulletID = contact.GetFixtureA().GetBody().GetUserData().id;
+            if (contact.GetFixtureA().GetBody().GetUserData()) {
+                bulletID = contact.GetFixtureA().GetBody().GetUserData().id;
+            }
 
-            if (world.bullets && world.bullets[bulletID]) {
+            if (bulletID && world.bullets && world.bullets[bulletID]) {
                 world.bullets[bulletID].kill = true;
 
                 if (contact.GetFixtureA().GetBody().GetUserData() && contact.GetFixtureA().GetBody().GetUserData().type) {
@@ -108,17 +111,21 @@ physics.moveItem = function (data) {
 
     if (data.action === 'up') {
         angle = 270;
-        force = 5;
+        force = 7;
     }
 
     if (data.action === 'right') {
+       if (world.objects[data.id]) {
         world.objects[data.id].face = 'right';
+     }
         angle = 1;
         force = 2;
     }
 
     if (data.action === 'left') {
+          if (world.objects[data.id]) {
         world.objects[data.id].face = 'left';
+}
         angle = 179;
         force = 2;
     }

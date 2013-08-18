@@ -39,10 +39,6 @@ exports.module = (function () {
                         io.sockets.emit('objectCreated', object);
                     });
 
-                    socket.on('updateWorld', function () {
-                        physics.updateWorld();
-                    });
-
                     socket.on('movePlayer', function (data) {
                         physics.moveItem(data);
                     });
@@ -68,6 +64,7 @@ exports.module = (function () {
                         }
 
                         positionTimer = setInterval(function () {
+				physics.updateWorld();
                             var data = physics.getData();
                             _.each(data.players, function (player) {
                                 io.sockets.emit('updatePosition', {player: data.objects[player.id], playerModel: player, id: player.id});
@@ -82,7 +79,7 @@ exports.module = (function () {
                                     io.sockets.emit('removedBullet', bullet.id);
                                 }
                             });
-                        }, 17);
+                        }, 16);
 
                     });
 
