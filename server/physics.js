@@ -21,8 +21,8 @@ physics.init = function () {
         if (contact.GetFixtureA().GetDensity() === 0.1) {
             var bulletID = contact.GetFixtureA().GetBody().GetUserData().id;
 
-            if (world.objects && world.objects[bulletID]) {
-                world.objects[bulletID].kill = true;
+            if (world.bullets && world.bullets[bulletID]) {
+                world.bullets[bulletID].kill = true;
             }
         }
     };
@@ -124,6 +124,12 @@ physics.getPlayers = function () {
     return {players: world.players, objects: world.objects};
 };
 
+physics.getData = function () {
+    'use strict';
+
+    return {players: world.players, objects: world.objects, bullets: world.bullets};
+};
+
 physics.removePlayer = function (playerID) {
     'use strict';
 
@@ -139,8 +145,8 @@ physics.removePlayer = function (playerID) {
 physics.removeBullet = function (bulletID) {
     'use strict';
 
-    if (world.objects && world.objects[bulletID]) {
-        delete world.objects[bulletID];
+    if (world.bullets && world.bullets[bulletID]) {
+        delete world.bullets[bulletID];
         world.removeBody(bulletID);
         delete world.bodies[bulletID];
     }
@@ -183,9 +189,9 @@ physics.createBullet = function (playerID, angle) {
         world.createKineticObject(4, 4, player.position.x * world.scale + positionFix.x, player.position.y * world.scale + positionFix.y, b2Body.b2_dynamicBody, data.id);
         physics.flyItem(data);
         world.moveItem(playerBody, angle, -1);
-        world.objects[data.id].angle = angle;
+        world.bullets[data.id].angle = angle;
     }
-    return {object: world.objects[data.id]};
+    return {object: world.bullets[data.id]};
 };
 
 exports.physics = physics;

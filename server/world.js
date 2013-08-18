@@ -11,6 +11,7 @@ var world = {
     scale: 30,
     id: new Date().getTime() + Math.random(),
     objects: {},
+    bullets: {},
     bodies: {},
     players: {}
 };
@@ -98,7 +99,7 @@ world.createKineticObject = function (width, height, pX, pY, type, id) {
         height: fixtureDefinition.upperBound.y - fixtureDefinition.lowerBound.y
     };
     world.bodies[id] = body;
-    world.objects[id] = itemDefinition;
+    world.bullets[id] = itemDefinition;
     return {
         itemDefinition: itemDefinition
     };

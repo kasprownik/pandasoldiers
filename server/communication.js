@@ -61,9 +61,12 @@ exports.module = (function () {
                     }
 
                     positionTimer = setInterval(function () {
-                        var data = physics.getPlayers();
+                        var data = physics.getData();
                         _.each(data.players, function (player) {
                             io.sockets.emit('updatePosition', data.objects[player.id]);
+                        });
+                        _.each(data.bullets, function (bullet) {
+                            io.sockets.emit('updatePosition', data.bullets[bullet.id]);
                         });
                     }, 17);
 
