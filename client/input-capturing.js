@@ -13,18 +13,18 @@ function runInputCapturing(socket) {
     'use strict';
 
     var KEY = {
-        UP: 38,
-        LEFT: 37,
-        RIGHT: 39
+        UP: 87,
+        LEFT: 65,
+        RIGHT: 68
     };
 
-    document.addEventListener('keydown', function (event) {
+    document.addEventListener('keydown', _.throttle(function (event) {
 
         switch (event.keyCode) {
 
             case KEY.UP:
-                if(!keyupCheck){
-                sendInput(socket, 'movePlayer', {action: "up", id: window.playerID});
+                if (!keyupCheck) {
+                    sendInput(socket, 'movePlayer', {action: "up", id: window.playerID});
                     keyupCheck = true;
                 }
                 break;
@@ -38,7 +38,7 @@ function runInputCapturing(socket) {
                 break;
         }
 
-    }, false);
+    }, 250), false);
 
     document.addEventListener('keyup', function (event) {
 
