@@ -92,9 +92,10 @@ exports.module = (function () {
 
                 socket.on('killedPlayer', function (id) {
                     var respawnPlayer;
-
+                    var name = physics.getPlayers().players[id].name;
                     physics.removePlayer(id);
                     respawnPlayer = physics.createPlayer(id);
+                    respawnPlayer.player.name = name;
                     io.sockets.emit('createdPlayer', respawnPlayer);
                 });
 
