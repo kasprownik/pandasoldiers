@@ -1,11 +1,11 @@
 /* global io: true */
 
 var config = {
-    debug: true,
+    debug: false,
     stageWidth: 800,
     stageHeight: 600,
-    music: false,
-    shots: false
+    music: true,
+    shots: true
 };
 
 var models = {
@@ -25,7 +25,7 @@ function startGame() {
 
     var objects = [],
         socket = config.debug ? io.connect('http://localhost:8080') :
-            io.connect('ws://pandasoldiers-cognifideninjas.rhcloud.com:8000');
+            io.connect('ws://pandasoldierssc-cognifideninjas.rhcloud.com:8000');
 
     socket.on('objectCreated', function (data) {
         objects.push(data);

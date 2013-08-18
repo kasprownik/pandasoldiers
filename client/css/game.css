@@ -17,7 +17,7 @@ html {
 
 #game {
     display: block;
-    border: 1px solid #ccc;
+    border: 3px solid rgba(0, 0, 0, 0.5);
     width: 800px;
     margin: 0 auto;
     cursor: url('/client/textures/crosshair.png'), none;
@@ -32,20 +32,27 @@ html {
     top: 20%;
     border: 1px solid #ccc;
     border-radius: 10px;
-    margin-left: -127px;
+    margin-left: -156px;
     text-align: center;
 }
 
 .form-heading {
-    margin-top: 49px;    
+    margin: 0;
+    padding: 0;
+    margin-top: 49px;
+    font-size: 25px;
+}
+
+.form-tip {
+    font-size: 14px;
 }
 
 .player-form:before {
     content: " ";
     position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
     background: #000;
     left: -20px;
     top: -30px;
@@ -55,9 +62,9 @@ html {
 .player-form:after {
     content: " ";
     position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
     background: #000;
     right: -20px;
     top: -30px;
@@ -101,10 +108,11 @@ button.panda {
     -moz-border-radius: 100px / 50px;
     -webkit-border-radius: 100px / 50px;
     border-radius: 100px / 50px;
+    font-size: 24px;
 }
 
 .input-text {
-    padding: 4px 8px;
+    padding: 5px 10px;
     color: #333;
     margin-bottom: 20px;
     width: 100%;
