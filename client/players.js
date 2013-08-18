@@ -67,7 +67,7 @@ var drawSinglePlayer = function (ctx, model) {
 var drawSinglePlayerName = function (ctx, player) {
     ctx.fillStyle = '#222222';
     ctx.font = "bold 9px Arial";
-    ctx.fillText(playerName, player.x - 10, player.y - 15);
+    ctx.fillText(player.name, player.x - 10, player.y - 15);
 
 };
 
