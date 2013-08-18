@@ -7,6 +7,17 @@
     <link rel="stylesheet" type="text/css" href="client/css/game.css"/>
 </head>
 <body>
+
+<div id="overlay"></div>
+
+<div class="player-form">
+    <h3>Hey Panda soldier !</h3>
+    <input type="text" class="input-text" id="player-name" placeholder="What's your name ?">
+    <button id="go" class="button">play</button>
+</div>
+
+<h1 class="playerHeading">Welcome <span id="currentPlayer"></span></h1>
+
 <canvas id="game" width="800" height="600"></canvas>
     <!-- <script src="http://pandasoldiers-cognifideninjas.rhcloud.com:8000/socket.io/socket.io.js"></script> -->
     <script src="/socket.io/socket.io.js"></script>
@@ -20,5 +31,8 @@
     <script src="client/playMusic.js"></script>
     <script src="client/gameloop.js"></script>
     <script src="client/playShot.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>window.jQuery || document.write('<script src="lib/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="client/intro.js"></script>
 </body>
 </html>
