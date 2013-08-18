@@ -102,7 +102,7 @@ physics.flyItem = function (data) {
 
     var body = world.bodies[data.id],
         angle = data.angle,
-        force = 60;
+        force = 40;
 
     world.linearVelocity(body, angle, force);
 };
