@@ -1,8 +1,8 @@
+var playerName;
 
 $(function() {
 
     var btn = $('#go');
-    var playerName;
     var playerHeading = $('#currentPlayer');
     var overlay = $('#overlay');
     var playerForm = $('.player-form');
