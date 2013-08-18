@@ -8,6 +8,7 @@ $(function() {
     var playerHeading = $('#currentPlayer');
     var overlay = $('#overlay');
     var playerForm = $('.player-form');
+    var manual = $("#manual");
 
     $(document).keypress(function(e){
         if(e.which == 13){
@@ -23,6 +24,7 @@ $(function() {
         if(playerName) {
             overlay.hide();
             playerForm.hide();
+            manual.hide();
             startGame();
         }
 
