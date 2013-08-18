@@ -10,7 +10,9 @@ var texturePath = '/client/textures/',
 	bottom = new Image(),
 	leftWall = new Image(),
 	rightWall = new Image(),
-	groundBottom = new Image();
+	groundBottom = new Image(),
+	bgCanvas = new Image(),
+	grassTop = new Image();
 
 	grass.src = texturePath+'grass.jpg';
 	grassLeft.src = texturePath+'grassleft.png';
@@ -24,14 +26,16 @@ var texturePath = '/client/textures/',
 	leftWall.src = texturePath+'wallleft.png';
 	rightWall.src = texturePath+'wallright.png';
 	groundBottom.src = texturePath+'groundbottom.png';
+	grassTop.src = texturePath+'grasstop.png';
+	bgCanvas.src = texturePath+'bg.jpg';
 
 var drawStage = function (ctx) {
     var stageHolder = ctx,
     	platforms = models.stage;
 
 	//create sky
-	ctx.fillStyle = "#33ABF9";
-	ctx.fillRect(0,0,800,600);
+	
+	ctx.drawImage(bgCanvas, 0, 0);
 
 	//create stage platforms
 	_.each(platforms,function(platform){
@@ -95,17 +99,17 @@ var drawRectangle = function (ctx, platform) {
 var drawDecoration = function (ctx) {
     var stageHolder = ctx,
 		platforms = models.stage,
-		offset = 7;
+		offset = 5;
 
 	_.each(platforms,function(platform){
-		var start, size;
-
-		if(platform.last){
-			start = platform.coordinates.start,
+		var start = platform.coordinates.start,
 			size = platform.coordinates.size;
 
+		if(platform.last){
 			ctx.drawImage(groundBottom, (start.x-size.x/2),  (start.y-size.y/2)+size.y);
-			// ctx.fillRect(start.x, start.y+size.y, size.x, offset);
+    	}
+    	if(platform.texture.indexOf('grass') !== -1){
+			ctx.drawImage(grassTop, (start.x-size.x/2),  (start.y-size.y/2)-offset);
     	}
     });
 
