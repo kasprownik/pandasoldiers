@@ -63,6 +63,7 @@ exports.module = (function () {
                     var player = physics.createPlayer(uuid());
                     currentPlayer = player.id;
                     io.sockets.emit('createdPlayer', player);
+
                 });
 
                 socket.on('loadPlayers', function () {
