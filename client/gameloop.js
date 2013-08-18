@@ -41,6 +41,10 @@ function startGame() {
         drawPlayers(ctx);
     });
 
+    socket.on('userLimit', function () {
+        alert('Maximum user number has been reached. Try again later.');
+    });
+
 
     socket.on('createdPlayer', function (data) {
         if (!playerCreated) {
