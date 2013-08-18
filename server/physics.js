@@ -52,7 +52,7 @@ physics.updateWorld = function () {
     if (world.current.Step) {
 
         world.current.Step(
-            1 / 60,   //frame-rate
+            1 / 30,   //frame-rate
             3,       //velocity iterations
             1       //position iterations
         );

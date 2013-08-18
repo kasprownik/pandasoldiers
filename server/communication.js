@@ -67,34 +67,7 @@ exports.module = (function () {
                     physics.removePlayer(currentPlayer);
                     io.sockets.emit('disconnected', currentPlayer);
                 });
-
-
             });
-
-            io.sockets.on('connection', function (socket) {
-                //    module.bindConnection(io.sockets, socket);
-            });
-        },
-        bindConnection: function (sockets, socket) {
-            //  var playerId = uuid();
-
-            //  ps.publish('createPlayer', playerId);
-
-            //        socket.on('movePlayer', function (data) {
-            //          console.log(data);
-            //        ps.publish('movePlayer', {playerId: playerId, action: data.action});
-            //   });
-
-            //    socket.on('shot', function (data) {
-            //        console.log(data);
-            //        ps.publish('createBullet', {playerId: playerId, angle: data.action});
-            //    });
-
-            //    socket.on('disconnect', function () {
-            //        ps.publish('removePlayer', {playerId: playerId});
-            //    });
-
-
         }
     };
 
