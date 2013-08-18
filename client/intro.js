@@ -1,5 +1,7 @@
 $(function() {
 
+    'use strict';
+
     var btn = $('#go');
     var playerHeading = $('#currentPlayer');
     var playerName;
@@ -24,7 +26,5 @@ $(function() {
         }
 
     });
-
-
 
 });
