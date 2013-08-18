@@ -16,7 +16,7 @@ var models = {
 
 var playerCreated = false;
 
-window.onload = function () {
+function startGame() {
     'use strict';
 
     window.canvasNode = document.getElementById('game');

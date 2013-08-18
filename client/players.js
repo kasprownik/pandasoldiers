@@ -39,4 +39,5 @@ var drawSinglePlayerLife = function (ctx, player) {
 	}
 	
 	ctx.fillRect(player.x-10, player.y-13, barLength, 2);
+
 }
