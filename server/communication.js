@@ -97,7 +97,11 @@ exports.module = (function () {
 
                     socket.on('killedPlayer', function (id) {
                         var respawnPlayer;
-                        var name = physics.getPlayers().players[id].name;
+			if (physics.getPlayers().players[id]) {
+                            var name = physics.getPlayers().players[id].name;
+                        } else {
+                            var name ='name';
+                        }
                         physics.removePlayer(id);
                         respawnPlayer = physics.createPlayer(id);
                         respawnPlayer.player.name = name;
