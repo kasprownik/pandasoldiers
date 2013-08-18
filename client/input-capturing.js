@@ -5,7 +5,7 @@ function sendInput(socket, name, data) {
     'use strict';
 
     socket.emit(name, data);
-    console.log(keyupCheck);
+
 }
 
 function runInputCapturing(socket) {
