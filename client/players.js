@@ -1,3 +1,8 @@
+var texturePath = '/client/textures/',
+	playerPanda = new Image();
+
+	playerPanda.src = texturePath+'pandaR-red.png';
+
 var drawPlayers = function (ctx){
     var i = 0,
         ln = 0,
@@ -14,7 +19,8 @@ var drawSinglePlayer = function (ctx, model) {
     var player = model;
 
     ctx.fillStyle = 'black';
-    ctx.fillRect(player.x-10, player.y-10, 20, 20);
+    ctx.drawImage(playerPanda, player.x-10, player.y-10);
+
 
     ctx.rotate(player.angle*90);
 
