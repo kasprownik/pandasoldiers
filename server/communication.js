@@ -1,6 +1,6 @@
 exports.module = (function () {
     'use strict';
-    var ps = require('../lib/pubsub');
+    var _ = require('../lib/lodash');
     var uuid = require('../lib/uuid').uuid;
     return {
         init: function (server) {
@@ -38,14 +38,6 @@ exports.module = (function () {
                     physics.updateWorld();
                 });
 
-                socket.on('getObject', function (id) {
-                    var object = physics.getObject(id);
-
-                    if (object) {
-                        socket.emit('updatePosition', object);
-                    }
-                });
-
                 socket.on('movePlayer', function (data) {
                     physics.moveItem(data);
                 });
@@ -58,11 +50,22 @@ exports.module = (function () {
                 socket.on('createLevel', function () {
                     socket.emit('createdLevel', physics.createLevel());
                 });
-
+                var positionTimer;
                 socket.on('createPlayer', function () {
                     var player = physics.createPlayer(uuid());
                     currentPlayer = player.id;
                     io.sockets.emit('createdPlayer', player);
+
+                    if (positionTimer) {
+                        clearInterval(positionTimer);
+                    }
+
+                    positionTimer = setInterval(function () {
+                        var data = physics.getPlayers();
+                        _.each(data.players, function (player) {
+                            io.sockets.emit('updatePosition', data.objects[player.id]);
+                        });
+                    }, 17);
 
                 });
 
@@ -71,6 +74,7 @@ exports.module = (function () {
                 });
                 socket.on('disconnect', function () {
                     physics.removePlayer(currentPlayer);
+                    console.log('connection lost', currentPlayer);
                     io.sockets.emit('disconnected', currentPlayer);
                 });
 
@@ -82,4 +86,5 @@ exports.module = (function () {
         }
     };
 
-})();
+})
+    ();

@@ -28,6 +28,7 @@ stage.draw = function () {
         parsedLevelModel = {
             type: currentItem.type,
             texture: currentItem.texture,
+            last: currentItem.last,
             coordinates: {
                 start: {
                     x: levelModel.itemDefinition.position.x * world.scale,
