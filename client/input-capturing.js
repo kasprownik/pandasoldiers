@@ -1,6 +1,11 @@
+var keyupCheck = false;
+
 function sendInput(socket, name, data) {
+
     'use strict';
+
     socket.emit(name, data);
+    console.log(keyupCheck);
 }
 
 function runInputCapturing(socket) {
@@ -18,7 +23,10 @@ function runInputCapturing(socket) {
         switch (event.keyCode) {
 
             case KEY.UP:
+                if(!keyupCheck){
                 sendInput(socket, 'movePlayer', {action: "up", id: window.playerID});
+                    keyupCheck = true;
+                }
                 break;
 
             case KEY.LEFT:
@@ -32,7 +40,18 @@ function runInputCapturing(socket) {
 
     }, false);
 
-// mouse
+    document.addEventListener('keyup', function (event) {
+
+        switch (event.keyCode) {
+            case KEY.UP:
+                keyupCheck = false;
+                break;
+        }
+
+    }, false);
+
+
+// mouse click
 
     canvasNode.addEventListener('click', function (e) {
         var xOffset = parseInt(e.pageX - canvasNode.offsetLeft, 10);
@@ -40,9 +59,10 @@ function runInputCapturing(socket) {
 
         var angle = Math.atan2(yOffset, xOffset) * 180 / Math.PI;
 
-        sendInput(socket, 'shot', {angle: angle });
+        sendInput(socket, 'shot', {id: window.playerID, angle: angle });
         playShot();
 
     }, false);
 
 }
+

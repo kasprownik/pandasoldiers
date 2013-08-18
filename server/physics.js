@@ -67,20 +67,30 @@ physics.moveItem = function (data) {
 
     if (data.action === 'up') {
         angle = 270;
-        force = 4;
+        force = 5;
     }
 
     if (data.action === 'right') {
         angle = 1;
-        force = 1;
+        force = 2;
     }
 
     if (data.action === 'left') {
         angle = 179;
-        force = 1;
+        force = 2;
     }
 
     world.moveItem(body, angle, force);
+};
+
+physics.flyItem = function (data) {
+    'use strict';
+
+    var body = world.bodies[data.id],
+        angle = data.angle,
+        force = 20;
+
+    world.linearVelocity(body, angle, force);
 };
 
 physics.createPlayer = function (playerID) {
@@ -108,6 +118,20 @@ physics.removePlayer = function (playerID) {
         world.removeBody(playerID);
         delete world.bodies[playerID];
     }
+};
+
+physics.createBullet = function (playerID, angle) {
+    'use strict';
+    var player = world.objects[playerID],
+        data = {
+            id: 'bullet' + playerID,
+            angle: angle
+        };
+    if (player) {
+        world.createObject(20, 20, player.position.x * world.scale, player.position.y * world.scale, b2Body.b2_kinematicBody, 'bullet' + playerID);
+        physics.flyItem(data);
+    }
+    return {object: world.objects['bullet' + playerID]};
 };
 
 exports.physics = physics;
