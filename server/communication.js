@@ -4,7 +4,6 @@ exports.module = (function () {
     var uuid = require('../lib/uuid').uuid;
     return {
         init: function (server) {
-            var module = this;
 
             var io = require('socket.io').listen(server),
                 physics = require('../server/physics.js').physics;
@@ -63,7 +62,10 @@ exports.module = (function () {
                     positionTimer = setInterval(function () {
                         var data = physics.getData();
                         _.each(data.players, function (player) {
-                            io.sockets.emit('updatePosition', data.objects[player.id]);
+                            io.sockets.emit('updatePosition', {player: data.objects[player.id], playerModel: player, id: player.id});
+                            if (player.life <= 0) {
+                                io.sockets.emit('killPlayer', player.id);
+                            }
                         });
                         _.each(data.bullets, function (bullet) {
                             io.sockets.emit('updatePosition', data.bullets[bullet.id]);
@@ -79,14 +81,23 @@ exports.module = (function () {
                 socket.on('loadPlayers', function () {
                     socket.emit('loadedPlayers', physics.getPlayers());
                 });
+
                 socket.on('disconnect', function () {
                     physics.removePlayer(currentPlayer);
                     console.log('connection lost', currentPlayer);
                     io.sockets.emit('disconnected', currentPlayer);
                 });
+
+                socket.on('killedPlayer', function (id) {
+                    var respawnPlayer;
+
+                    physics.removePlayer(id);
+                    respawnPlayer = physics.createPlayer(id);
+                    io.sockets.emit('createdPlayer', respawnPlayer);
+                });
+
             });
         }
     };
 
-})
-    ();
+})();
