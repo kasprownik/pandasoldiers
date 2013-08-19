@@ -19,12 +19,9 @@ exports.module = (function () {
             });
 
             physics.init();
-                var worldTimer = setInterval(function () {
-                 physics.updateWorld();
-                },16);
-
 
             var positionTimer = setInterval(function () {
+   		physics.updateWorld();
                 var data = physics.getData();
                 _.each(data.players, function (player) {
                     io.sockets.emit('updatePosition', {player: data.objects[player.id], playerModel: player, id: player.id});
@@ -50,16 +47,6 @@ exports.module = (function () {
 
                 } else {
 
-                    socket.on('createStaticObject', function (data) {
-                        var object = physics.createStaticObject(data);
-                        io.sockets.emit('objectCreated', object);
-                    });
-
-                    socket.on('createDynamicObject', function (data) {
-                        var object = physics.createDynamicObject(data);
-                        io.sockets.emit('objectCreated', object);
-                    });
-
                     socket.on('movePlayer', function (data) {
                         physics.moveItem(data);
                     });
@@ -74,7 +61,6 @@ exports.module = (function () {
                     });
 
                     socket.on('createPlayer', function (name) {
-                        console.log('name');
                         var player = physics.createPlayer(uuid());
                         currentPlayer = player.id;
                         player.player.name = name;
